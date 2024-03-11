@@ -1,0 +1,22 @@
+.about-section {
+    background-color: #f6f7f8;
+    margin-top: 10vh;
+    padding: 30vh 0;
+  }
+  
+  .about-section .container {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .about-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .about-section p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    padding: 0 10vh;
+  }

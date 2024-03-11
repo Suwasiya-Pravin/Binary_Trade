@@ -1,0 +1,169 @@
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  border-bottom: 1px solid rgb(237, 232, 232);
+  z-index: 9999;
+}
+
+.logo {
+  color: black;
+  letter-spacing: 5px;
+  font-size: 20px;
+  background-color: #fff;
+}
+.logo h4,.nav-links{
+  background-color: #fff;
+  margin: 5px 0 ;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  background-color: #fff;
+}
+.nav-links li {
+  list-style: none;
+  background-color: #fff;
+}
+
+.nav-links a {
+  color:  #7E7C7C;
+  text-decoration: none;
+  font-size: 16px; 
+}
+
+.burger {
+  display: none;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(203, 201, 201);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+.nav-links li {
+  opacity: 0;
+  animation: navLinkFade 0.5s ease forwards;
+}
+
+.nav-active .nav-links li {
+  opacity: 1;
+  animation: navLinkFade 0.5s ease forwards var(--i);
+}
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: black; /* Change this to the color you want when hovering */
+}
+/* Add this to your Header.css file */
+
+.login-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 2px;
+}
+
+.login-menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  transition: 0.3s all;
+}
+
+.login-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.nav-links li:hover .login-menu {
+  display: block;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-links {
+      width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+      overflow-x: hidden;
+  }
+  
+  .nav-links {
+      position: fixed;
+      right: 0px;
+      height: 80vh;
+      top: 8.5vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in;
+  }
+  
+  .nav-links li {
+      opacity: 0;
+  }
+  
+  .burger {
+      display: block;
+      cursor: pointer;
+      background-color: #fff;
+  }
+}
+
+.nav-active {
+      transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+
+
+
+
+
+

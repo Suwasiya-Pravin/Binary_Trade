@@ -1,0 +1,111 @@
+
+.user-dashboard {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffff;
+    margin-top: 11vh;
+
+}
+.user-dashboard h1{
+    font-size: 20px;
+}
+.navigation-menu {
+    background-color: #f8f9fa;
+    color: black;
+    padding: 1rem;
+}
+
+.navigation-menu h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.navigation-menu ul {
+    list-style-type: none;
+}
+
+.navigation-menu li {
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.navigation-menu li:hover {
+    background-color: #e4e5e8;
+}
+.menu-active{
+    background-color: #e4e5e8;
+}
+
+.page-content {
+    flex-grow: 1;
+    padding: 2.5rem;
+}
+
+
+.favorites-page,
+.transaction-history,
+.default-page {
+    padding: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.p-card-dashboard{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+}
+.close-icon {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    color: rgb(255, 143, 143);
+    font-size: 30px;
+  }
+  .close-icon:hover{
+    color: red;
+  }
+.p-card-dashboard img{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+.profile-overview {
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-overview h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1c3faa;
+}
+.flex-row{
+    display: flex;
+    align-items: center;
+
+}
+
+.user-details {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #cce5ff;
+    padding: 1rem;
+    border-radius: 3px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    color: #1c3faa;
+}
+.transcation{
+    justify-content: space-between;
+    align-items: center;
+}
+

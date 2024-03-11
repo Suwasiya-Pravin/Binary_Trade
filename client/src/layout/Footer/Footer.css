@@ -1,0 +1,78 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    background-color: #ffff;
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid rgb(237, 232, 232);
+}
+
+.section, .newsletter {
+    width: 30%;
+    background-color: #ffff;
+}
+
+.section h4, .newsletter h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.section ul, .newsletter ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.section li, .newsletter li {
+    margin-bottom: 5px;
+    color:  #7E7C7C;
+    cursor: pointer;
+    transition:0.3s;
+}
+.section li:hover {
+    color: black;
+}
+.newsletter input[type=email] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0; 
+    border: 1px solid #bbb6b6;
+    border-radius: 2px;
+    outline: none;
+}
+.newsletter input[type=email]:focus{
+    --tw-ring-color: none;
+}
+
+
+.newsletter button {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    color: #7E7C7C;
+    border: 1px solid #bbb6b6;
+    cursor: pointer;
+    border-radius: 2px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+.newsletter button:hover {
+    border: 1px solid  #2929E5;
+    background-color:  #2929E5;
+    color: #ffff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+    }
+    .section, .newsletter {
+        width: 100%;
+
+    }
+
+}

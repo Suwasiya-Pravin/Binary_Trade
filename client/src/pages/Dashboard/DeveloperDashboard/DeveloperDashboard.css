@@ -1,0 +1,57 @@
+
+.show-password {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.input {
+  position: relative;
+}
+.input select option{
+  color: gray;
+  padding: 10px 0;
+}
+
+
+.projects table {
+    width: 100%;
+    border-collapse: collapse;
+    
+  }
+  
+  .projects th, .projects td {
+    padding: 10px;
+  }
+  
+
+  .projects th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+    
+  }
+  
+  .projects button {
+    margin-right: 10px;
+  }
+  .update-delete-button{
+    display: flex;
+    gap: 8px;
+  }
+  .btn-update:hover{
+    background-color: blue;
+    color: white;
+  }
+  .btn-delete:hover{
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+  }
+  

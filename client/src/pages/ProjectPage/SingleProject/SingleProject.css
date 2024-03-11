@@ -1,0 +1,189 @@
+.single-P-Div {
+  width: 100%;
+  background-color: #f6f7f8;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+}
+
+.singleProject {
+  width: 80%;
+  display: flex;
+  margin: 12vh auto;
+  flex-direction: column;
+}
+.wishlist {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 9px;
+  background-color: #ffff;
+  border-radius: 9999px;
+}
+.ProjectInfo {
+  /* Style your product description div here */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+
+.ProjectInfo .productImage {
+  width: 50%;
+  background-color: #ffff;
+  padding: 10px;
+  border-radius: 2px;
+}
+.productImage {
+  position: relative;
+}
+
+.ProjectInfo .productImage img {
+  width: 100%;
+}
+
+.ProjectInfo .productDescription {
+  width: 50%;
+  background-color: #ffff;
+  padding: 8px 20px;
+  display: flex;
+  border-radius: 2px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.productCategory {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.modal h1 {
+  font-size: 20px;
+  color: #00a;
+}
+
+.modal p {
+  font-size: 15px;
+}
+
+.modal p a {
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+
+.productTitle {
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.productDescriptionText {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.productMaker {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.productPrice {
+  font-size: 20px;
+  color: #00a;
+  margin-bottom: 10px;
+}
+
+.productRating {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.productOwner span {
+  cursor: pointer;
+}
+.ProjectNavigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 17px;
+  background-color: #ffff;
+  margin-bottom: 20px;
+}
+
+.ProjectNavigation p {
+  cursor: pointer;
+}
+
+.ProjectDetails {
+  background: #ffff;
+}
+
+.publish-r {
+  margin: 30px auto;
+}
+
+.desc,
+.allReview {
+  margin: 30px auto;
+  width: 90%;
+}
+
+.desc div {
+  margin: 20px 0;
+}
+
+.allReview {
+  display: flex;
+  ;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.allReview .review {
+  display: flex;
+  width: 49%;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid #cccdce;
+  border-radius: 2px;
+
+}
+
+.allReview .review .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.allReview .review .header h2 {
+  color: orange;
+}
+
+.allReview .review .header h3 {
+  color: blue;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.allReview .review .r-desc h1 {
+  font-size: 22px;
+}
+
+.allReview .review .r-desc p {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.allReview .review .date {
+  font-size: 12px;
+}

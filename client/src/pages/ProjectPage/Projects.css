@@ -1,0 +1,117 @@
+.pr-div {
+    width: 100%;
+    background: #f6f7f8;
+    padding: 30px 0;
+}
+
+.productPage {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    padding: 20px;
+    margin: 11vh auto;
+}
+
+.filters {
+    flex: 1;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.filters h3 {
+    margin-bottom: 20px;
+}
+
+.filters label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+}
+
+.filters input:hover {
+    cursor: pointer;
+}
+
+.price,
+.rating {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 15px 10px;
+    border-radius: 2px;
+}
+
+.products {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.productCard {
+    width: 300px;
+    /* This will make the card responsive */
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 13px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.5s all;
+    flex-wrap: wrap;
+    border-radius: 2px;
+}
+
+
+
+.productCard:hover {
+    box-shadow: 7px 7px 5px rgba(148, 148, 148, 0.124);
+}
+
+.productCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.productCategory {
+    color: blue;
+    font-size: 12px;
+}
+
+.productName {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.productRating {
+    display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+    .productPage {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .filters,
+    .products {
+        width: 100%;
+    }
+
+    .filters {
+        padding: 0px;
+
+    }
+
+    .productCard {
+        width: 100%;
+    }
+
+    .filters {
+        border-right: none;
+
+    }
+}

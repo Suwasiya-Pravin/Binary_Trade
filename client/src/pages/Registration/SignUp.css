@@ -1,0 +1,100 @@
+.signup-section{
+    width: 80%;
+    margin: auto;
+    margin-top: 19vh;
+    margin-bottom: 5vh;
+}
+.make-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-facebook-div{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.google-facebook-div .f-g{
+    padding: 10px;
+    border: 1px solid #bebaba;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #1e1e1ed1;
+}
+.google-facebook-div .f-g i{
+    font-size: 25px;
+    margin-right: 10px;
+}
+.google-facebook-div .f-g p{
+    font-size: 15px;
+}
+.s-text{
+    font-size: 20px;
+    margin: 30px 0 ;
+}
+.form-signup{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #1e1e1ed1;
+}
+.input input{
+    border: 1px solid #bebaba;
+    outline: none;
+    padding: 10px;
+    border-radius: 2px;
+}
+.input textarea{
+    border: 1px solid #bebaba;
+    outline: none;
+    padding: 10px;
+    border-radius: 2px;
+
+}
+.input textarea:focus{
+    --tw-ring-color: none;
+}
+.input input:focus{
+    --tw-ring-color: none;
+}
+.submit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.submit p{
+    color: #2929E5;
+    cursor: pointer;
+}
+.submit button{
+    padding: 10px 15px ;
+}
+.msg-box{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.msg-box .input{
+    width: 100%;
+}
+
+@media screen and (max-width: 767px){
+
+    .google-facebook-div {
+        flex-direction: column;
+        justify-content: start;
+        gap: 20px;
+    }
+    .google-facebook-div .f-g {
+        width: 100%;
+    }
+    .msg-box{
+        flex-direction: column;
+    }
+}
