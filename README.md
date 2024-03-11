@@ -44,17 +44,19 @@ The Software Marketplace project aims to bridge the gap between software develop
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/software-marketplace.git
+[git clone https://github.com/your_username/software-marketplace.git](https://github.com/Suwasiya-Pravin/Binary_Trade.git)
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd software-marketplace
+   cd server
+   cd client
    ```
 
-3. Install dependencies:
+3. Install dependencies: for both server and client
    ```bash
    npm install
+   npm install 
    ```
 
 ## Usage
