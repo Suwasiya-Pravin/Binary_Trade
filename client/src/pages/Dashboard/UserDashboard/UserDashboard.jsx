@@ -269,13 +269,7 @@ const ResetPassword = () => {
 
 const UserDashboard = () => {
   const [currentPage, setCurrentPage] = useState("Profile");
-  const navigate=useNavigate();
-  const currentPageUrl = {
-    Profile: "/user/profile",
-    Reset: "/user/reset-password",
-    Favorites: "/user/favorites",
-    Transaction: "/user/transaction",
-  };
+  const navigate = useNavigate();
   const renderPage = () => {
     switch (currentPage) {
       case "Profile":
@@ -320,8 +314,7 @@ const UserDashboard = () => {
           </li>
         </ul>
       </div>
-      <div onClick={() => navigate(currentPageUrl[currentPage])}
-        className="page-content">{renderPage()}</div>
+      <div className="page-content">{renderPage()}</div>
     </div>
   );
 };
