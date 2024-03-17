@@ -13,6 +13,7 @@ import SingleProject from "./pages/ProjectPage/SingleProject/SingleProject";
 import UserDashboard from "./pages/Dashboard/UserDashboard/UserDashboard";
 import AdminDashboard from "./pages/Dashboard/AdminDashboard/AdminDashboard"
 import DeveloperDashboard from "./pages/Dashboard/DeveloperDashboard/DeveloperDashboard"
+import Payment from "./pages/payments/Payment";
 import { GlobalProvider } from "./GlobalState";
 import { ToastContainer } from "react-toastify";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/projects" element={<Projects/>}/>
         <Route path="/projects/:slug" element={<SingleProject/>}/>
+        <Route path="/payment/:slug" element={<Payment/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/signup" element={<SignUp/>}/>

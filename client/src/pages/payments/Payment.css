@@ -1,0 +1,29 @@
+.payment-container{
+    display: flex;
+    padding: 20vh 0;
+}
+
+.payment-method {
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+.payment-method h2{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.payment-method h3{
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+
+.payment-method label {
+    display: block;
+    margin-bottom: 20px;
+
+}
+.payment-method input{
+    margin-right: 10px;
+
+}
