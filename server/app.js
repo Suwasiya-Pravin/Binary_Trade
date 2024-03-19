@@ -10,6 +10,7 @@ app.use(cookieParser());
 app.use("/api/v1/users",require('./router/user'));
 app.use("/api/v1/projects",require('./router/project'));
 app.use("/api/v1/category",require('./router/category'));
+app.use("/api/v1/order",require('./router/order'));
 
 const PORT = process.env.PORT;
 
