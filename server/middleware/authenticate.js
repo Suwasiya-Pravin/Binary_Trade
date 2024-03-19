@@ -18,7 +18,7 @@ const Authenticate=async (req,res,next) => {
         req.userId=rootUser._id;
         next();
     }catch(err){
-        console.log(err+" in authenticate");
+        console.log(err+ " in authenticate");
         res.status(401).send("unauthorized :no token there");
     }
 

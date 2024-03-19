@@ -1,5 +1,4 @@
 const express = require("express");
-const { getAllOrderByIdController } = require("../controllers/OrderController");
 const Authenticate = require("../middleware/authenticate");
 const router = express.Router();
 
@@ -18,3 +17,4 @@ router.get('/get-order',Authenticate,getAllOrderByIdController);
 router.get('/place-order/:projectId',Authenticate,placeOrderController);
 
 
+module.exports = router;
