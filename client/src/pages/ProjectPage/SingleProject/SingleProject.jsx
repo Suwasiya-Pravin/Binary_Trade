@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import "./SingleProject.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Modal from "antd/es/modal/Modal";
 import { GlobalContext } from "../../../GlobalState";
 import { toast } from "react-toastify";
@@ -9,7 +9,7 @@ import "../../../../node_modules/react-toastify/dist/ReactToastify.css";
 
 const SingleProject = () => {
   let { slug } = useParams();
-  const [isBuy, setIsBuy] = useState(false);
+  const navigate=useNavigate();
   const [project, setProject] = useState({});
   const [favoriteProjects, setFavoriteProjects] = useState([]);
   const [selectedTab, setSelectedTab] = useState("Description");
@@ -108,6 +108,7 @@ const SingleProject = () => {
         );
     }
   };
+
   if (!project) return <div>Loading...</div>;
   return (
     <div className="single-P-Div">
@@ -152,8 +153,8 @@ const SingleProject = () => {
             <div>
               <button
                 className="btn btn-active"
-                onClick={() => setIsBuy(!isBuy)}>
-                {isBuy ? "Download" : "Buy Now"}
+                onClick={()=>{navigate(`/payment/${project.slug}`)}}>
+                Buy Now
               </button>
             </div>
           </div>
