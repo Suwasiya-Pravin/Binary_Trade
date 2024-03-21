@@ -269,7 +269,6 @@ const ResetPassword = () => {
 
 const UserDashboard = () => {
   const [currentPage, setCurrentPage] = useState("Profile");
-  const navigate = useNavigate();
   const renderPage = () => {
     switch (currentPage) {
       case "Profile":

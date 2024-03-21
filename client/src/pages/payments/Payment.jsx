@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams ,useNavigate} from "react-router-dom";
 import useRazorpay from "react-razorpay";
+import { toast } from "react-toastify";
 import "./Payment.css";
 import axios from "axios";
 const PaymentMethod = () => {
+  const navigate=useNavigate();
   const [paymentMethod, setPaymentMethod] = useState("");
   const [project, setProject] = useState({});
   const [Razorpay] = useRazorpay();
@@ -23,7 +25,7 @@ const PaymentMethod = () => {
       }
     };
     fetchProjects();
-  }, []);
+  }, [slug]);
   console.log(project._id);
 
   const makePayment = async () => {
@@ -32,51 +34,28 @@ const PaymentMethod = () => {
     );
     console.log(response);
     const options = {
-      key: "rzp_test_qGEfgGpgroFxOp", // Enter the Key ID generated from the Dashboard
-      amount: response.data.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      key: "rzp_test_qGEfgGpgroFxOp",
+      amount: response.data.amount,
       currency: "INR",
-      name: "Acme Corp",
-      description: "Test Transaction",
+      name: "Binary Trade",
+      description: "",
       image: "",
-      order_id: response.data.order_id, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
-      handler: function (response) {
-        console.log(response)
+      order_id: response.data.id,
+      handler: async function (response) {
+        const res = await axios.post("/api/v1/order/verify-payment", response);
+        if (res.status === 201) {
+          console.log("Purchase successfull !");
+          toast.success("Payment Done Successfully");
+          navigate(`/projects/${project.slug}`)
+        }
       },
-      prefill: {
-        name: "Piyush Garg",
-        email: "youremail@example.com",
-        contact: "9999999999",
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
+      notes: {},
       theme: {
         color: "#3399cc",
       },
     };
-    var rzp1 = new Razorpay(options);
-    rzp1.on("payment.failed", function (response) {
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
-    });
-
-    rzp1.open();
-
-    rzp1.on("payment.failed", function (response) {
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
-    });
-    rzp1.open();
+    var rzp = new Razorpay(options);
+    rzp.open();
   };
   return (
     <div className="payment-container">
