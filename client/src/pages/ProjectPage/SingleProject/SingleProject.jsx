@@ -108,13 +108,33 @@ const SingleProject = () => {
         );
     }
   };
+  const StarRating = ({ rating }) => {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating - fullStars >= 0.5;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+    const starIcons = [];
+    for (let i = 0; i < fullStars; i++) {
+      starIcons.push(<i key={i} className="fas fa-star text-blue-800"></i>);
+    }
+    if (halfStar) {
+      starIcons.push(<i key="half" className="fas fa-star-half-alt text-blue-800"></i>);
+    }
+    for (let i = 0; i < emptyStars; i++) {
+      starIcons.push(
+        <i key={i + fullStars + halfStar} className="far fa-star text-blue-800"></i>
+      );
+    }
+
+    return <div className="star-rating">{starIcons}</div>;
+  };
 
   if (!project) return <div>Loading...</div>;
   return (
     <div className="single-P-Div">
       <div className="singleProject">
         <div className="ProjectInfo br-2">
-          <div className="productImage">
+          <div className="productImage h-full">
             {globalState.userType === "buyer" ? (
               <i
                 style={{
@@ -128,14 +148,15 @@ const SingleProject = () => {
             )}
             <img src={project.image} alt={project.title} />
           </div>
-          <div className="productDescription">
+          <div className="productDescription relative">
             <h2 className="productCategory">
               {project.category && project.category.name}
             </h2>
+            
             {/* {project.category.name} */}
             <p className="productTitle">{project.title}</p>
-            <p><a href={project.demoLink} rel="noreferrer" target="_blank" style={{textDecoration:"underline"}}>demo</a></p>
-            <p className="productPrice">
+            <p className="absolute top-0 right-0 p-5" ><a href={project.demoLink} rel="noreferrer" target="_blank" style={{textDecoration:"underline"}}><i class="fa-solid fa-arrow-up-right-from-square text-sm rounded bg-blue-800 text-white p-2"></i></a></p>
+            <p className="productPrice font-normal">
               <s style={{ color: "black" }}>
                 ₹ {parseInt(project.price * 1.3)}
               </s>{" "}
@@ -143,13 +164,20 @@ const SingleProject = () => {
             </p>
             <p className="productOwner">
               Made By:{" "}
-              <span onClick={showModal}>
+              <span className="hover:text-blue-800 font-semibold"  onClick={showModal}>
                 {project.developer && project.developer.username}
               </span>
             </p>
-            <p className="productRating">
-              Rating : {project && project.overAllRating===0?'0':project.overAllRating}
+            <p className="productPrice">
+              <s style={{ color: "black" }}>
+                ₹ {parseInt(project.price * 1.3)}
+              </s>{" "}
+              ₹ {project.price}
             </p>
+            <p className="productRating">
+            <StarRating rating={project.overAllRating || 0} />
+            </p>
+            
             <div>
               <button
                 className="btn btn-active"

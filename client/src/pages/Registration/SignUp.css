@@ -84,7 +84,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 768px){
 
     .google-facebook-div {
         flex-direction: column;
@@ -96,5 +96,8 @@
     }
     .msg-box{
         flex-direction: column;
+    }
+    .signup-section{
+        width: 90%;
     }
 }

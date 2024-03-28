@@ -53,6 +53,8 @@ const DevSignUp = () => {
 
   return (
     <div className="signup-section">
+      <h1 className="md:text-4xl text-2xl">Sell With Us , <span className="text-blue-600">Coder !!</span></h1>
+      <br />
       <form onSubmit={handleSubmit} className="form-signup">
         <div className="msg-box">
           <div className="input">
@@ -86,7 +88,7 @@ const DevSignUp = () => {
         <div className="input">
           <label>Email</label>
           <input
-            type="text"
+            type="email"
             name="email"
             placeholder="email"
             onChange={handleChange}

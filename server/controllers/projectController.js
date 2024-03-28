@@ -307,7 +307,7 @@ const getDataByFilterationController = async (req, res) => {
   const minRating = parseInt(req.query.minRating) || 0;
   const maxRating = parseInt(req.query.maxRating) || 5;
   const minPrice = parseInt(req.query.minPrice) || 0;
-  const maxPrice = parseInt(req.query.maxPrice) || Number.MAX_VALUE;
+  const maxPrice = parseInt(req.query.maxPrice);
 
   try {
     const projects = await Project.find({
@@ -315,7 +315,7 @@ const getDataByFilterationController = async (req, res) => {
       price: { $gte: minPrice, $lte: maxPrice },
     })
       .populate("developer")
-      .populate("category")
+      .populate("category","name slug")
       .exec();
     res.json({
       success: true,

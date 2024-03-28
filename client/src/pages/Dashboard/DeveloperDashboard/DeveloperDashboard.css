@@ -45,11 +45,15 @@
     display: flex;
     gap: 8px;
   }
-  .btn-update:hover{
+  .btn-update{
     background-color: blue;
     color: white;
   }
   .btn-delete:hover{
+    background-color: red;
+    outline: none;
+  }
+  .btn-delete{
     border: 1px solid red;
     background-color: red;
     color: white;

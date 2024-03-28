@@ -49,8 +49,28 @@ const Products = () => {
       fetchProjects();
     }
   }, [price, rating]);
+  const StarRating = ({ rating }) => {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating - fullStars >= 0.5;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+    const starIcons = [];
+    for (let i = 0; i < fullStars; i++) {
+      starIcons.push(<i key={i} className="fas fa-star text-blue-800"></i>);
+    }
+    if (halfStar) {
+      starIcons.push(<i key="half" className="fas fa-star-half-alt text-blue-800"></i>);
+    }
+    for (let i = 0; i < emptyStars; i++) {
+      starIcons.push(
+        <i key={i + fullStars + halfStar} className="far fa-star text-blue-800"></i>
+      );
+    }
+
+    return <div className="star-rating">{starIcons}</div>;
+  };
   return (
-    <div className="pr-div">
+    <div className="pr-div relative">
       <div className="productPage">
         <div className="filters">
           <h3>Filters</h3>
@@ -81,25 +101,26 @@ const Products = () => {
           {projects.map((product) => {
             return (
               <div key={product._id} className="productCard">
-                <div>
+                <div className="productImage">
                   <img src={product.image} alt={product.name} />
                 </div>
                 <div
                   style={{
                     cursor: "pointer",
+                    padding: "13px",
                   }}
                   onClick={() => navigate(`/projects/${product.slug}`)}>
                   <h4 className="productCategory">{product.category.name}</h4>
                   <h3 className="productName">{product.title}</h3>
                   <p>₹ {product.price}</p>
                   <p className="productRating">
-                    Rating: { product && product.overAllRating}
+                  <StarRating rating={product.overAllRating || 0} />
                   </p>
                 </div>
               </div>
             );
           })}
-          {projects.length<=0?"No Project to Show":""}
+          {projects.length <= 0 ? "No Project to Show" : ""}
         </div>
       </div>
     </div>

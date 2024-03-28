@@ -160,7 +160,7 @@ const ProjectCard = ({ project, onEdit,onDelete }) => {
 
 
   return (
-    <div className="productCard p-card-dashboard transcation">
+    <div className="productCard p-card-dashboard transcation relative">
       <div className="flex-row">
         <img src={Image} alt={"portfolio website"} />
         <div style={{cursor:'pointer'}} onClick={()=>{navigate(`/projects/${project.slug}`)}}>
@@ -170,11 +170,11 @@ const ProjectCard = ({ project, onEdit,onDelete }) => {
           <p>{project.status}</p>
         </div>
       </div>
-      <div className="update-delete-button">
-        <button className="btn btn-update" onClick={() => onEdit(project)}>
-          Update
+      <div className="update-delete-button absolute -top-4 -right-2 text-sm ">
+        <button className="btn btn-update " onClick={() => onEdit(project)}>
+        <i class="fa-solid fa-pen-to-square p-0 "></i>
         </button>
-        <button className="btn btn-delete" onClick={()=>HandleDelete(project._id,onDelete)}>Delete</button>
+        <button className="btn btn-delete" onClick={()=>HandleDelete(project._id,onDelete)}><i class="fa-solid fa-trash"></i></button>
       </div>
     </div>
   );

@@ -108,6 +108,10 @@ nav {
   body {
       overflow-x: hidden;
   }
+  nav{
+    justify-content: space-between;
+    padding: 20px 20px;
+  }
   
   .nav-links {
       position: fixed;

@@ -149,7 +149,7 @@ const Wishlist = () => {
           <i
             className="fa-solid fa-circle-xmark close-icon"
             onClick={() => DeleteFav(favorite._id)}></i>
-          <img src={Image} alt={favorite.title} />{" "}
+          <img className="w-16" src={favorite.image} alt={favorite.title} />{" "}
           {/* Replace 'Image' with the actual image source */}
           <div
             onClick={() => navigate(`/projects/${favorite.slug}`)}
@@ -169,7 +169,7 @@ const Transaction = () => {
     <div className="signup-section publish-r ">
       <h1>Transaction</h1>
       <hr />
-      <div className="productCard p-card-dashboard transcation">
+      <div className="productCard p-card-dashboard transcation relative">
         <div className="flex-row">
           <img src={Image} alt={"portfolio website"} />
           <div>
@@ -178,8 +178,8 @@ const Transaction = () => {
             <p>$1000</p>
           </div>
         </div>
-        <div>
-          <button className="btn">Download</button>
+        <div >
+          <button  className="border p-2 hover:text-white hover:bg-blue-800 text-xl text-blue-800 absolute bottom-2 right-4 rounded "><i class="fa-solid fa-download"></i></button>
         </div>
       </div>
     </div>

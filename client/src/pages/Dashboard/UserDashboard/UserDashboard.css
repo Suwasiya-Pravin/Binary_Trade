@@ -4,7 +4,6 @@
     flex-direction: row;
     background-color: #ffff;
     margin-top: 11vh;
-
 }
 .user-dashboard h1{
     font-size: 20px;
@@ -12,7 +11,7 @@
 .navigation-menu {
     background-color: #f8f9fa;
     color: black;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .navigation-menu h2 {
@@ -57,7 +56,10 @@
     display: flex;
     flex-direction: row;
     position: relative;
-
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
 }
 .close-icon {
     position: absolute;
@@ -74,6 +76,7 @@
     height: 100px;
     margin-right: 20px;
     margin-bottom: 0;
+
 }
 .profile-overview {
     padding: 1rem;
@@ -108,4 +111,26 @@
     justify-content: space-between;
     align-items: center;
 }
+@media screen and (max-width: 768px) {
+    .user-dashboard{
+        flex-direction: column;
+    }
+    .page-content{
+        padding: 10px;
+    }
+    .publish-r {
+        margin: 13px auto;
+    }
+    .p-card-dashboard {
+        flex-wrap: nowrap;
+    }
+    .productCategory {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    .productName {
+        font-weight: 500;
+        font-size: 16px;
+    }
+  }
 

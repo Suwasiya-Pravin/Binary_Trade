@@ -158,10 +158,10 @@ const Projects = () => {
     setModalVisible(false);
   };
   return (
-    <div className="signup-section publish-r ">
+    <div className="signup-section publish-r users-table-container">
       <h1>Projects</h1>
       <hr />
-      <table>
+      <table >
         <thead>
           <tr>
             <th>Name</th>
@@ -432,6 +432,7 @@ const Catagory = () => {
               <div className="flex-row">
                 <div>
                   <input
+                   className="border p-2 w-full"
                     type="text"
                     name="name"
                     placeholder="Please Enter Category Name"
@@ -457,7 +458,7 @@ const Catagory = () => {
             <>
               <div className="flex-row">
                 <div>
-                  <h4 className="productCategory">{category.name}</h4>
+                  <h4 className="productCategory text-xl">{category.name}</h4>
                 </div>
               </div>
               <div className="update-delete-button">

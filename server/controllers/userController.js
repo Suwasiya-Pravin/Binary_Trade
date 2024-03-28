@@ -350,7 +350,7 @@ const getAllFavoritesController = async (req, res) => {
     // Find the user by ID and populate the 'favorites' field
     const user = await User.findById(req.userId).populate({
       path: "favoriteProjects",
-      select: "title price slug", // Include other fields you want to retrieve
+      select: "title price slug image", // Include other fields you want to retrieve
       populate: {
         path: "category",
         select: "name", // Include all relevant fields from the category model
