@@ -16,6 +16,8 @@ import DeveloperDashboard from "./pages/Dashboard/DeveloperDashboard/DeveloperDa
 import Payment from "./pages/payments/Payment";
 import { GlobalProvider } from "./GlobalState";
 import { ToastContainer } from "react-toastify";
+import TermsAndCondition from "./pages/TermAndConditons/TermsAndCondition";
+import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/projects/:slug" element={<SingleProject/>}/>
         <Route path="/payment/:slug" element={<Payment/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+        <Route path="/terms-and-conditions" element={<TermsAndCondition/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/developer/register" element={<DeveloperRegister/>}/>

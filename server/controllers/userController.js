@@ -1,7 +1,7 @@
 const User = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const Project = require("../models/projectSchema");
-
+const Order = require("../models/orderSchema");
 // user Register
 const registerController = async (req, res) => {
   const { firstname, lastname, username, email, password, userType } = req.body;
@@ -483,7 +483,38 @@ const getAllBuyerController = async (req, res) => {
     });
   }
 };
+const isPaymentDoneController = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const projectId = req.params.projectId;
+    console.log(projectId,userId)
+    // Find order by user and project id
+    const order = await Order.findOne({ user: userId, project: projectId });
 
+    if (!order) {
+      // If no order found, return error response
+      return res.status(404).json({
+        success: false,
+        msg: "Order not found",
+        data: null,
+      });
+    }
+    console.log(order);
+    // If order found, return project details
+    const project = await Project.findById(projectId).select('sourceCode');
+    res.status(200).json({
+      success: true,
+      msg: "Project details found",
+      data: project,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      msg: error.message,
+      data: null,
+    });
+  }
+};
 module.exports = {
   registerController,
   loginController,
@@ -498,4 +529,5 @@ module.exports = {
   getAllUserController,
   getAllDeveloperController,
   getAllBuyerController,
+  isPaymentDoneController,
 };

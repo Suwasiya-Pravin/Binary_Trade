@@ -1,48 +1,105 @@
 import React from "react";
 import "../Registration/SignUp.css";
+import { toast } from "react-toastify";
 const Contact = () => {
-  const handleSubmit = () => {
-    console.log("send msg");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success("Message Send Successfully")
   };
+
   return (
-    <div className="signup-section">
-      <h1 style={{ fontSize: "24px" }}>Contact Information</h1>
-      <hr />
-      <div className="map-container">
-        <iframe
-          title="google-map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.2139811281637!2d-122.0856021838681!3d37.42079867986253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sGoogle%20LLC!5e0!3m2!1sen!2sin!4v1678727237816!5m2!1sen!2sin"
-          width="100%"
-          height="400"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"></iframe>
+    <div className="bg-white mt-16  ">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div className="text-start">
+          <p className="mt-2 text-3xl leading-8 font-normal tracking-tight text-gray-900 sm:text-4xl">
+            Get in touch
+          </p>
+          <p className="mt-4 text-lg leading-7 text-gray-500 lg:mt-5 lg:text-xl">
+            Have any questions or comments? We'd love to hear from you. Fill out
+            the contact form below and we'll get back to you as soon as
+            possible.
+          </p>
+        </div>
+
+        <div className="mt-10">
+          <form onSubmit={handleSubmit} className="form-signup mt-10">
+            <div className="msg-box">
+              <div className="input">
+                <label>Name</label>
+                <input type="text" placeholder="Please Enter Your Name" />
+              </div>
+              <div className="input">
+                <label>Email Address</label>
+                <input type="email" placeholder="Please Enter Your Email" />
+              </div>
+            </div>
+            <div className="input">
+              <label>Message</label>
+              <textarea
+                rows={8}
+                type="text"
+                placeholder="Please Enter Your Message"
+              />
+            </div>
+            <div className="submit ">
+              <button className="btn">Submit</button>
+            </div>
+          </form>
+        </div>
+
+        <div className="mt-10 md:mt-12">
+          <div>
+            <h2 className="mt-8 text-3xl leading-8 font-normal tracking-tight text-gray-900 sm:text-4xl">
+              Other ways to reach us
+            </h2>
+          </div>
+          <div className="mt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
+            <div>
+              <p className="text-lg leading-6 font-medium text-gray-900">
+                Email
+              </p>
+              <p className="mt-2 text-base leading-6 text-gray-500">
+                support@softwaremarketplace.com
+              </p>
+            </div>
+            <div>
+              <p className="text-lg leading-6 font-medium text-gray-900">
+                Phone
+              </p>
+              <p className="mt-2 text-base leading-6 text-gray-500">
+                +1 (123) 456-7890
+              </p>
+            </div>
+            <div>
+              <p className="text-lg leading-6 font-medium text-gray-900">
+                Address
+              </p>
+              <p className="mt-2 text-base leading-6 text-gray-500">
+                123 Software Marketplace Ave, Suite 1000, San Francisco, CA
+                94111
+              </p>
+            </div>
+            <div className="col-span-2">
+              <p className="text-lg leading-6 font-medium text-gray-900">
+                Social Media
+              </p>
+              <div className="mt-2 flex space-x-6 text-lg leading-5 text-gray-500">
+                <a href="https://www.linkedin.com/in/pravin-suwasiya-bb6404234/" className="font-medium text-gray-900 underline">
+                <i class="fa-brands fa-x-twitter hover:text-blue-600"></i>
+                </a>
+                <span>|</span>
+                <a href="https://www.linkedin.com/in/pravin-suwasiya-bb6404234/" className="font-medium text-gray-900 underline">
+                <i class="fa-brands fa-linkedin-in hover:text-blue-600"></i>
+                </a>
+                <span>|</span>
+                <a href="https://www.linkedin.com/in/pravin-suwasiya-bb6404234/" className="font-medium text-gray-900 underline">
+                <i class="fa-brands fa-github hover:text-blue-600"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <form onSubmit={handleSubmit} className="form-signup mt-10">
-        <div className="msg-box">
-          <div className="input">
-            <label>Name</label>
-            <input type="text" placeholder="Please Enter Your Name" />
-          </div>
-          <div className="input">
-            <label>Email Address</label>
-            <input type="email" placeholder="Please Enter Your Email" />
-          </div>
-        </div>
-        <div className="input">
-          <label>Message</label>
-          <textarea
-            rows={8}
-            type="text"
-            placeholder="Please Enter Your Message"
-          />
-        </div>
-        <hr />
-        <div className="submit ">
-          <button className="btn">Submit</button>
-        </div>
-      </form>
     </div>
   );
 };

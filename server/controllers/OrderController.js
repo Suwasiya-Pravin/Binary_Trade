@@ -6,7 +6,7 @@ const crypto = require("crypto");
 const getAllOrderByIdController = async (req, res) => {
   try {
     const id = req.userId;
-    const orders = await Order.find({ user: id }).populate("project");
+    const orders = await Order.find({ user: id ,status:'completed' }).populate("project",' _id sourceCode slug price image title');
     res.status(200).json({
       success: true,
       msg: "orders get Successfully",
@@ -49,9 +49,6 @@ const placeOrderController = async (req, res) => {
       amount: project.price,
       orderId: response.id,
     });
-    if (!orderPlaced) {
-      throw new Error("Order could not be placed");
-    }
     res.status(200).json(response);
     console.log(response);
   } catch (error) {

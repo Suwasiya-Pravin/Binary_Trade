@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
   projects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }],
   favoriteProjects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }],
   walletBalance: { type: Number, default: 0 },
-  transactions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Transaction" }],
+  transactions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Order" }],
   tokens: [
     {
       token: {

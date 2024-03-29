@@ -1,3 +1,7 @@
+.footer-container{
+    border-top: 1px solid rgb(237, 232, 232);
+    width: 100%;
+}
 .footer {
     display: flex;
     justify-content: center;
@@ -5,7 +9,7 @@
     background-color: #ffff;
     width: 80%;
     margin: auto;
-    border-top: 1px solid rgb(237, 232, 232);
+
 }
 
 .section, .newsletter {

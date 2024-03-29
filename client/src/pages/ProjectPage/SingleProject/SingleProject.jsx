@@ -9,14 +9,14 @@ import "../../../../node_modules/react-toastify/dist/ReactToastify.css";
 
 const SingleProject = () => {
   let { slug } = useParams();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [project, setProject] = useState({});
   const [favoriteProjects, setFavoriteProjects] = useState([]);
   const [selectedTab, setSelectedTab] = useState("Description");
   const [isWishlist, setIsWishlist] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { globalState } = useContext(GlobalContext);
-
+  const [order, setOrder] = useState([]);
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -48,20 +48,29 @@ const SingleProject = () => {
         console.log(error);
       }
     };
+    const orderAllUser = async () => {
+      try {
+        const res = await axios.get(`/api/v1/order/get-order`);
+        setOrder(res.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchFavoriteProjects();
     fetchProjects();
+    orderAllUser();
     // eslint-disable-next-line
   }, []);
+  console.log(order);
   useEffect(() => {
     if (globalState.userType === "buyer") {
-      
       const isFavorite = favoriteProjects.some(
         (favorite) => favorite._id === project._id
       );
-      console.log(isFavorite);
+      console.log(project._id);
       setIsWishlist(isFavorite);
     } // eslint-disable-next-line
-  }, [favoriteProjects, project]); 
+  }, [favoriteProjects, project]);
 
   const toggleWishlist = async () => {
     if (isWishlist) {
@@ -73,7 +82,7 @@ const SingleProject = () => {
         });
         console.log(response.data);
         setIsWishlist(!isWishlist);
-        toast.warning("Project deleted from wishlist")
+        toast.warning("Project deleted from wishlist");
       } catch (error) {
         console.error("Error:", error);
       }
@@ -85,7 +94,7 @@ const SingleProject = () => {
         });
         console.log(response.data);
         setIsWishlist(!isWishlist);
-        toast.success("Project added to wishlist")
+        toast.success("Project added to wishlist");
       } catch (error) {
         console.error("Error:", error);
       }
@@ -95,7 +104,12 @@ const SingleProject = () => {
   const renderPage = () => {
     switch (selectedTab) {
       case "Description":
-        return <CompleteDesc description={project.description} synopsis={project.synopsis} />;
+        return (
+          <CompleteDesc
+            description={project.description}
+            synopsis={project.synopsis}
+          />
+        );
       case "PublishReview":
         return <PublishReviewForm slug={slug} />;
       case "AllReview":
@@ -112,17 +126,20 @@ const SingleProject = () => {
     const fullStars = Math.floor(rating);
     const halfStar = rating - fullStars >= 0.5;
     const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-
     const starIcons = [];
     for (let i = 0; i < fullStars; i++) {
       starIcons.push(<i key={i} className="fas fa-star text-blue-800"></i>);
     }
     if (halfStar) {
-      starIcons.push(<i key="half" className="fas fa-star-half-alt text-blue-800"></i>);
+      starIcons.push(
+        <i key="half" className="fas fa-star-half-alt text-blue-800"></i>
+      );
     }
     for (let i = 0; i < emptyStars; i++) {
       starIcons.push(
-        <i key={i + fullStars + halfStar} className="far fa-star text-blue-800"></i>
+        <i
+          key={i + fullStars + halfStar}
+          className="far fa-star text-blue-800"></i>
       );
     }
 
@@ -152,41 +169,68 @@ const SingleProject = () => {
             <h2 className="productCategory">
               {project.category && project.category.name}
             </h2>
-            
+
             {/* {project.category.name} */}
             <p className="productTitle">{project.title}</p>
-            <p className="absolute top-0 right-0 p-5" ><a href={project.demoLink} rel="noreferrer" target="_blank" style={{textDecoration:"underline"}}><i class="fa-solid fa-arrow-up-right-from-square text-sm rounded bg-blue-800 text-white p-2"></i></a></p>
-            <p className="productPrice font-normal">
-              <s style={{ color: "black" }}>
-                ₹ {parseInt(project.price * 1.3)}
-              </s>{" "}
-              ₹ {project.price}
+            <p className="absolute top-0 right-0 p-5">
+              <a
+                href={project.demoLink}
+                rel="noreferrer"
+                target="_blank"
+                style={{ textDecoration: "underline" }}>
+                <i class="fa-solid fa-arrow-up-right-from-square text-sm rounded bg-blue-800 text-white p-2"></i>
+              </a>
             </p>
             <p className="productOwner">
               Made By:{" "}
-              <span className="hover:text-blue-800 font-semibold"  onClick={showModal}>
+              <span
+                className="hover:text-blue-800 font-semibold"
+                onClick={showModal}>
                 {project.developer && project.developer.username}
               </span>
             </p>
-            <p className="productPrice">
-              <s style={{ color: "black" }}>
-                ₹ {parseInt(project.price * 1.3)}
-              </s>{" "}
-              ₹ {project.price}
-            </p>
+
             <p className="productRating">
-            <StarRating rating={project.overAllRating || 0} />
+              <StarRating rating={project.overAllRating || 0} />
             </p>
-            
-            <div>
-              <button
-                className="btn btn-active"
-                onClick={()=>{navigate(`/payment/${project.slug}`)}}>
-                Buy Now
-              </button>
+            <div className="flex w-full justify-between items-center">
+              <p className="productPrice">
+                <s style={{ color: "black" }}>
+                  ₹ {parseInt(project.price * 1.3)}
+                </s>{" "}
+                ₹ {project.price}
+              </p>
+              <div>
+                {order.map((or) => {
+                    if (
+                      or.project._id === project._id &&
+                      or.project.sourceCode
+                    ) {
+                      return (
+                        <button key={or.project._id} className="btn btn-active">
+                          <a href={`${or.project.sourceCode}`}>Download</a>
+                        </button>
+                      );
+                    }
+                    return null;
+                  })
+                  .filter(Boolean)
+                  .slice(0, 1)}
+                {!order.some((or) => or.project._id === project._id) && (
+                  <button
+                    key={project._id}
+                    className="btn btn-active"
+                    onClick={() => {
+                      navigate(`/payment/${project.slug}`);
+                    }}>
+                    Buy Now
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
+
         <div className="ProjectNavigation br-2">
           <p onClick={() => setSelectedTab("Description")}>Description</p>
           <p onClick={() => setSelectedTab("PublishReview")}>Publish Review</p>
@@ -219,7 +263,7 @@ const SingleProject = () => {
   );
 };
 
-const CompleteDesc = ({ description,synopsis }) => {
+const CompleteDesc = ({ description, synopsis }) => {
   return (
     <div className="desc">
       <div className="d">
@@ -229,7 +273,11 @@ const CompleteDesc = ({ description,synopsis }) => {
         <br />
         Below is Download Button for Synopsis for Project..
         <div>
-          <button className="btn"><a href={synopsis} download>Download</a></button>
+          <button className="btn">
+            <a href={synopsis} download>
+              Download
+            </a>
+          </button>
         </div>
       </div>
     </div>

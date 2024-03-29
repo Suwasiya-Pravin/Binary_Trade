@@ -1,9 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./UserDashboard.css";
-import Image from "../../../assets/product.jpg";
 import axios from "axios";
 import { GlobalContext } from "../../../GlobalState";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const ProfileOverview = () => {
@@ -24,6 +23,7 @@ const ProfileOverview = () => {
   };
   useEffect(() => {
     // eslint-disable-next-line
+
     setFormDataOnReload(); // eslint-disable-next-line
   }, []);
   const handleSubmit = async (e) => {
@@ -165,22 +165,46 @@ const Wishlist = () => {
 };
 
 const Transaction = () => {
+  const [order, setOrder] = useState([]);
+  const navigate=useNavigate();
+  useEffect(() => {
+    const orderAllUser = async () => {
+      try {
+        const res = await axios.get(`/api/v1/order/get-order`);
+        setOrder(res.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    orderAllUser();
+  }, []);
+  console.log(order);
   return (
     <div className="signup-section publish-r ">
       <h1>Transaction</h1>
       <hr />
-      <div className="productCard p-card-dashboard transcation relative">
-        <div className="flex-row">
-          <img src={Image} alt={"portfolio website"} />
-          <div>
-            <h4 className="productCategory">portfolio</h4>
-            <h3 className="productName">PortFolio Website</h3>
-            <p>$1000</p>
-          </div>
-        </div>
-        <div >
-          <button  className="border p-2 hover:text-white hover:bg-blue-800 text-xl text-blue-800 absolute bottom-2 right-4 rounded "><i class="fa-solid fa-download"></i></button>
-        </div>
+      <div>
+
+        {order.map((orderItem) => {
+          return (
+            <div className="productCard p-card-dashboard transcation relative" onClick={()=>{
+              navigate(`/projects/${orderItem.project.slug}`)
+            }}>
+              <div className="flex-row">
+                <img src={orderItem.project.image} alt={"portfolio website"} />
+                <div>
+                  <h3 className="productName text-5xl">{orderItem.project.title}</h3>
+                  <p className="text-blue-600 mt-2 text-2xl">₹ {orderItem.project.price}</p>
+                </div>
+              </div>
+              <div>
+                <button className="border p-2 hover:text-white hover:bg-blue-800 text-xl text-blue-800 absolute bottom-2 right-4 rounded ">
+                  <a href={`${orderItem.project.sourceCode}`}><i class="fa-solid fa-download"></i></a>
+                </button>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -29,6 +29,7 @@ const PaymentMethod = () => {
   console.log(project._id);
 
   const makePayment = async () => {
+    
     const response = await axios.get(
       `/api/v1/order/place-order/${project._id}`
     );
@@ -57,6 +58,7 @@ const PaymentMethod = () => {
     var rzp = new Razorpay(options);
     rzp.open();
   };
+  console.log(project._id)
   return (
     <div className="payment-container">
       <div className="payment-method">

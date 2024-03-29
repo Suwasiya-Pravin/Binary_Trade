@@ -15,7 +15,8 @@ const {
   devloperRegisterController,
   getAllUserController,
   getAllDeveloperController,
-  getAllBuyerController
+  getAllBuyerController,
+  isPaymentDoneController
 } = require("../controllers/userController");
 
 require("../db/conn"); //connection
@@ -51,4 +52,5 @@ router.delete('/delete-favorite',Authenticate,deleteFavoriteController);
 router.get('/get-all',Authenticate,getAllUserController);
 router.get('/get-developers',Authenticate,getAllDeveloperController);
 router.get('/get-buyers',Authenticate,getAllBuyerController);
+router.get("/ispayment/:projectId", Authenticate, isPaymentDoneController);
 module.exports = router;
