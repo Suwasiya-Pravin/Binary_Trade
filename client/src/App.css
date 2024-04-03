@@ -7,6 +7,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  p{
+    color:rgb(192, 192, 192);
   }
 .btn{
   padding: 10px;
@@ -19,16 +27,16 @@
     transition: 0.5s;
 }
 .btn-active{
-  border: 1px solid  #2929E5;
-  background-color:  #2929E5;
+  border: 1px solid  #2563eb;
+  background-color:  #2563eb;
   color: #ffff;
 }
 .br-2{
   border-radius: 2px;
 }
 .btn:hover{
-  border: 1px solid  #2929E5;
-  background-color:  #2929E5;
+  border: 1px solid  #2563eb;
+  background-color:  #2563eb;
   color: #ffff;
 }
 hr{
@@ -39,4 +47,7 @@ input{
 }
 input:focus{
   --tw-ring-color: none;
+}
+.bg-bl{
+  background-color: #0d1117;
 }

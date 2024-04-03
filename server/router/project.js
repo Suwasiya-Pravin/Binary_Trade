@@ -52,7 +52,7 @@ router.delete(
 router.get("/category/:category", getProjectByCategoryController);
 // Route: POST review for Project
 router.post("/review/:slug", Authenticate, postReviewController);
-router.get("/review/:slug", Authenticate, getAllReviewController);
+router.get("/review/:slug", getAllReviewController);
 // Route : Get project based on price and rating
 router.get("/filter", getDataByFilterationController);
 

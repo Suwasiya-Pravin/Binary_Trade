@@ -45,9 +45,9 @@ const Users = () => {
       <h1>Users</h1>
       <hr />
       <div className="button-group">
-        <button onClick={() => setSelected("all")}>All</button>
-        <button onClick={() => setSelected("developer")}>Developers</button>
-        <button onClick={() => setSelected("buyer")}>Buyers</button>
+        <button className="category" onClick={() => setSelected("all")}>All</button>
+        <button className="category" onClick={() => setSelected("developer")}>Developers</button>
+        <button className="category" onClick={() => setSelected("buyer")}>Buyers</button>
       </div>
       <div className="users-table-container">
         <table>
@@ -204,26 +204,26 @@ const Projects = () => {
             <img src={selectedProject.image} alt={selectedProject.title} />
             <p className="project-details-id">ID: {selectedProject._id}</p>
             <p className="project-details-name">
-              Name: {selectedProject.title}
+              <u>Name</u> : {selectedProject.title}
             </p>
             <p className="project-details-category">
-              Category: {selectedProject.category.name}
+              <u>Category</u> : {selectedProject.category.name}
             </p>
             <p className="project-details-developer">
-              Developer:{" "}
+              <u>Developer</u> :{" "}
               {`${selectedProject.developer.username} (${selectedProject.developer.email})`}
             </p>
             <p className="project-details-description">
-              Description: {selectedProject.description}
+              <u>Description</u> : {selectedProject.description}
             </p>
             <p className="project-details-price">
-              synopsis : <a download href={selectedProject.synopsis}>Download</a>
+              <u>synopsis</u> : <a download href={selectedProject.synopsis}>Download</a>
             </p>
             <p className="project-details-price">
-              Source Code : <a download href={selectedProject.sourceCode}>Download</a>
+              <u>Source Code</u> : <a download href={selectedProject.sourceCode}>Download</a>
             </p>
             <p className="project-details-price">
-              price: {selectedProject.price}
+              <u>price</u> : {selectedProject.price}
             </p>
             <p className="project-details-demo-link">
               <a href={selectedProject.demoLink}>demo</a>
@@ -506,7 +506,7 @@ const UserDashboard = () => {
   };
 
   return (
-    <div className="user-dashboard">
+    <div className="user-dashboard bg-bl text-white ">
       <div className="navigation-menu">
         <h2>Navigation Menu</h2>
         <ul>
@@ -529,11 +529,6 @@ const UserDashboard = () => {
             className={currentPage === "Catagory" ? "menu-active" : ""}
             onClick={() => setCurrentPage("Catagory")}>
             Catagory
-          </li>
-          <li
-            className={currentPage === "Balance" ? "menu-active" : ""}
-            onClick={() => setCurrentPage("Balance")}>
-            Total Balance
           </li>
         </ul>
       </div>

@@ -170,8 +170,8 @@ const ProjectCard = ({ project, onEdit,onDelete }) => {
           <p>{project.status}</p>
         </div>
       </div>
-      <div className="update-delete-button absolute -top-4 -right-2 text-sm ">
-        <button className="btn btn-update " onClick={() => onEdit(project)}>
+      <div className="update-delete-button absolute top-0 right-0 text-sm ">
+        <button className="btn btn-update" onClick={() => onEdit(project)}>
         <i class="fa-solid fa-pen-to-square p-0 "></i>
         </button>
         <button className="btn btn-delete" onClick={()=>HandleDelete(project._id,onDelete)}><i class="fa-solid fa-trash"></i></button>

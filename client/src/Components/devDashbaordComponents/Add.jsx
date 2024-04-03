@@ -154,7 +154,7 @@ const Add = () => {
           </div>
           <div className="input">
             <label>Category</label>
-            <select value={formData.category} onChange={handleCategoryChange}>
+            <select className="category p-2" value={formData.category} onChange={handleCategoryChange}>
               <option selected>Select Category</option>
               {categories.map((category) => (
                 <option key={category._id} value={category._id}>

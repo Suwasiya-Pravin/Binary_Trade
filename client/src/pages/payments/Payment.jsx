@@ -60,7 +60,7 @@ const PaymentMethod = () => {
   };
   console.log(project._id)
   return (
-    <div className="payment-container">
+    <div className="payment-container bg-bl text-white ">
       <div className="payment-method">
         <h2>Select a payment method</h2>-{slug}-
         <br />

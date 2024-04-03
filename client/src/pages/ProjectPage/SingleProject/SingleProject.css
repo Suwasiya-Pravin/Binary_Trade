@@ -1,6 +1,5 @@
 .single-P-Div {
   width: 100%;
-  background-color: #f6f7f8;
   display: flex;
   flex-direction: column;
   padding: 50px 0;
@@ -19,7 +18,6 @@
   cursor: pointer;
   font-size: 20px;
   padding: 9px;
-  background-color: #ffff;
   border-radius: 9999px;
 }
 .ProjectInfo {
@@ -34,7 +32,6 @@
 
 .ProjectInfo .productImage {
   width: 50%;
-  background-color: #ffff;
   border-radius: 2px;
 }
 .productImage {
@@ -48,8 +45,8 @@
 }
 
 .ProjectInfo .productDescription {
+  color: white;
   width: 50%;
-  background-color: #ffff;
   padding: 8px 20px;
   display: flex;
   border-radius: 2px;
@@ -65,11 +62,11 @@
 
 .modal h1 {
   font-size: 20px;
-  color: #00a;
 }
 
 .modal p {
   font-size: 15px;
+  color: black;
 }
 
 .modal p a {
@@ -80,7 +77,7 @@
 
 .productTitle {
   font-size: 24px;
-  color: #000;
+
   margin-bottom: 10px;
 }
 
@@ -96,13 +93,11 @@
 
 .productPrice {
   font-size: 20px;
-  color: #00a;
   margin-bottom: 10px;
 }
 
 .productRating {
   font-size: 16px;
-  color: #333;
   margin-bottom: 10px;
 }
 
@@ -114,7 +109,6 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 17px;
-  background-color: #ffff;
   margin-bottom: 20px;
 }
 
@@ -123,22 +117,14 @@
 }
 
 .ProjectDetails {
-  background: #ffff;
+
 }
 
 .publish-r {
-  margin: 30px auto;
+  margin: 0px auto;
+  padding: 30px 0;
 }
 
-.desc,
-.allReview {
-  margin: 30px auto;
-  width: 90%;
-}
-
-.desc div {
-  margin: 20px 0;
-}
 
 .allReview {
   display: flex;

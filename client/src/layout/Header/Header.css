@@ -8,20 +8,21 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #ffffff;
+  background-color: #0d1117;
   font-family: "Poppins", sans-serif;
-  border-bottom: 1px solid rgb(237, 232, 232);
+  border-bottom: 1px solid rgb(78, 78, 78);
   z-index: 9999;
+  text-transform: uppercase;
 }
 
 .logo {
   color: black;
   letter-spacing: 5px;
   font-size: 20px;
-  background-color: #fff;
+  color: white;
+  font-weight: 600;
 }
 .logo h4,.nav-links{
-  background-color: #fff;
   margin: 5px 0 ;
 }
 
@@ -29,15 +30,13 @@ nav {
   display: flex;
   justify-content: space-around;
   width: 30%;
-  background-color: #fff;
+  color: rgb(144, 141, 141);
 }
 .nav-links li {
   list-style: none;
-  background-color: #fff;
 }
 
 .nav-links a {
-  color:  #7E7C7C;
   text-decoration: none;
   font-size: 16px; 
 }
@@ -67,14 +66,14 @@ nav {
 }
 
 .nav-link:hover {
-  color: black; /* Change this to the color you want when hovering */
+  color: white; /* Change this to the color you want when hovering */
 }
 /* Add this to your Header.css file */
 
 .login-menu {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #1f2630;
   width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -82,7 +81,7 @@ nav {
 }
 
 .login-menu a {
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -91,7 +90,7 @@ nav {
 }
 
 .login-menu a:hover {
-  background-color: #f1f1f1;
+  background-color: #0d1117;
 }
 
 .nav-links li:hover .login-menu {
@@ -133,12 +132,12 @@ nav {
   .burger {
       display: block;
       cursor: pointer;
-      background-color: #fff;
   }
 }
 
 .nav-active {
       transform: translateX(0%);
+      background-color: #0d1117;
 }
 
 @keyframes navLinkFade {

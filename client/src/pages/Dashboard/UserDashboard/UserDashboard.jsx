@@ -141,7 +141,7 @@ const Wishlist = () => {
     }
   };
   return (
-    <div className="signup-section publish-r ">
+    <div className="signup-section publish-r bg-bl text-white ">
       <h1>Wishlist</h1>
       <hr />
       {favorites.map((favorite) => (
@@ -236,7 +236,7 @@ const ResetPassword = () => {
     }
   };
   return (
-    <div className="signup-section publish-r">
+    <div className="signup-section publish-r bg-bl text-white ">
       <h1>Reset Password</h1>
       <hr />
       <form onSubmit={handleSubmit} className="form-signup">
@@ -311,7 +311,7 @@ const UserDashboard = () => {
   };
 
   return (
-    <div className="user-dashboard">
+    <div className="user-dashboard bg-bl text-white ">
       <div className="navigation-menu">
         <h2>Navigation Menu</h2>
         <ul>

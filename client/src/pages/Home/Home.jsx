@@ -87,7 +87,7 @@ const Home = () => {
       logo: "https://via.placeholder.com/50", // URL to the company logo image
     },
     {
-      id: 2,
+      id: 3,
       name: "Pravin",
       position: "Lead Developer, Software Co.",
       message:
@@ -102,21 +102,35 @@ const Home = () => {
   console.log(globalState);
   return (
     <div>
-      <div className="hero px-7 md:px-x">
-        
-        <h1>Welcome to Binary Trade</h1>
+      <div className="hero px-7">
+        <h1 className="hero-h1 text-4xl md:text-7xl mb-5">
+          Welcome to <span className="gradient">Binary Trade</span>
+        </h1>
         <p>Your one-stop shop for all software needs.</p>
-        <button onClick={()=>navigate('/projects')} className="button">Shop Now</button>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
+        <button
+          onClick={() => navigate("/projects")}
+          className="bg-blue-600 text-white">
+          Shop Now
+        </button>
+
+        <div className="area">
+          <ul className="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
       </div>
 
-      <div className="featured-projects mt-8 px-7 md:px-16">
-        <h2 className="text-3xl md:text-4xl mb-10 ">
+      <div className="featured-projects pt-8 px-7 md:px-16 bg-bl">
+        <h2 className="text-3xl md:text-4xl mb-10 gradient">
           Featured Projects
         </h2>
         <div className="flex gap-5 md:gap-10 flex-col md:flex-row justify-start">
@@ -132,7 +146,9 @@ const Home = () => {
                     padding: "13px",
                   }}
                   onClick={() => navigate(`/projects/${product.slug}`)}>
-                  <h4 className="productCategory text-blue-600">{product.category.name}</h4>
+                  <h4 className=" text-blue-600 mb-2">
+                    {product.category.name}
+                  </h4>
                   <h3 className="productName">{product.title}</h3>
                   <p>₹ {product.price}</p>
                   <p className="productRating">
@@ -145,67 +161,70 @@ const Home = () => {
           {projects.length <= 0 ? "No Project to Show" : ""}
         </div>
       </div>
-      <div className="my-4 px-7 md:px-16">
-        <h2 className="text-3xl md:text-4xl my-10">Categories</h2>
-        <div className="category-grid flex justify-center md:justify-start items-center gap-3 flex-wrap">
+      <div className="py-4 px-7 md:px-16 bg-bl text-white">
+        <h2 className="text-3xl md:text-4xl my-10 gradient">Categories</h2>
+        <div className=" flex justify-center md:justify-start items-center gap-3 flex-wrap">
           {categories.map((category) => (
-            <div className="category-tile w-full md:w-auto hover:shadow-lg transition-all delay-800 p-5 border rounded ">
-              <p><i className="fa-solid fa-icons text-blue-600 mr-3 text-2xl"></i> {category.name}</p>
+            <div
+              key={category._id}
+              className="category categoryHover w-full md:w-auto p-5  bg-black-200 mb-5 rounded-lg shadow-xl ">
+              <p>
+                <i className="fa-solid fa-icons text-blue-600 mr-3 text-2xl"></i>{" "}
+                {category.name}
+              </p>
             </div>
           ))}
         </div>
       </div>
-      <div className="how-it-works py-12 px-7 md:px-16">
+      <div className="how-it-works py-12 px-7 md:px-16 bg-bl text-white ">
         <div className="mx-auto">
-          <h2 className="md:text-4xl text-3xl font-normal mb-8 md:mb-16">
+          <h2 className="md:text-4xl text-3xl font-normal mb-8 md:mb-16 gradient">
             How It Works
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-            <div className="flex items-center mb-6">
-              <div className="mr-4 flex-shrink-0">
-              <i className="fa-solid fa-window-restore text-5xl text-blue-600"></i>
+            <div className=" category categoryHover flex items-center mb-6 p-5 rounded-lg">
+              <div className=" mr-4 flex-shrink-0">
+                <i className="fa-solid fa-window-restore text-5xl text-blue-600"></i>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-2">Browse Projects</h3>
-                <p className="text-gray-700">
+                <p>
                   Discover a wide range of software projects across various
                   categories.
                 </p>
               </div>
             </div>
-            <div className="flex items-center mb-6">
+            <div className=" category categoryHover flex items-center mb-6 p-5 rounded-lg">
               <div className="mr-4 flex-shrink-0">
-              <i className="fa-brands fa-figma text-5xl text-blue-600"></i>
+                <i className="fa-brands fa-figma text-5xl text-blue-600"></i>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-2">Easy to Use</h3>
-                <p className="text-gray-700">
-                  Easy to integrate and easy to usable with great UX and UI
-                </p>
+                <p>Easy to integrate and easy to usable with great UX and UI</p>
               </div>
             </div>
-            <div className="flex items-center mb-6">
+            <div className=" category categoryHover flex items-center mb-6 p-5 rounded-lg">
               <div className="mr-4 flex-shrink-0">
-              <i className="fa-solid fa-shield-halved text-5xl text-blue-600"></i>
+                <i className="fa-solid fa-shield-halved text-5xl text-blue-600"></i>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-2">
                   Secure Transactions
                 </h3>
-                <p className="text-gray-700">
+                <p>
                   Enjoy secure transactions and payments through our platform.
                 </p>
               </div>
             </div>
-            <div className="flex items-center mb-6">
+            <div className=" category categoryHover flex items-center mb-6 p-5 rounded-lg">
               <div className="mr-4 flex-shrink-0">
-              <i className="fa-solid fa-flask text-5xl text-blue-600"></i>
+                <i className="fa-solid fa-flask text-5xl text-blue-600"></i>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-2">
                   Efficient Solutions
                 </h3>
-                <p className="text-gray-700">
+                <p>
                   Find efficient and customized software solutions tailored to
                   your needs.
                 </p>
@@ -214,15 +233,15 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className=" py-12">
+      <div className=" py-12 bg-bl text-white ">
         <div className="px-7 md:px-16">
-          <h2 className="text-4xl font-normal  mb-8">Testimonials</h2>
+          <h2 className="text-4xl font-normal  mb-8 gradient">Testimonials</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonialsData.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-white rounded-lg shadow-md p-6">
-                <div className="flex items-center mb-4">
+                className="category categoryHover rounded-lg shadow-md p-6 ">
+                <div className="flex items-center mb-4 ">
                   <img
                     src="https://source.unsplash.com/random/150x150?person1"
                     alt={testimonial.name}
@@ -232,12 +251,12 @@ const Home = () => {
                     <h3 className="text-lg font-semibold">
                       {testimonial.name}
                     </h3>
-                    <p className="text-gray-600">{testimonial.position}</p>
+                    <p>{testimonial.position}</p>
                   </div>
                 </div>
-                <p className="text-gray-700 mb-4">{testimonial.message}</p>
+                <p className=" mb-4">{testimonial.message}</p>
                 <div className="flex items-start justify-start ">
-                  <p className="text-sm text-gray-600">{testimonial.company}</p>
+                  <p className="text-sm">{testimonial.company}</p>
                 </div>
               </div>
             ))}

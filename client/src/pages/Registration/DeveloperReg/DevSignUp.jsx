@@ -52,8 +52,9 @@ const DevSignUp = () => {
   };
 
   return (
-    <div className="signup-section">
-      <h1 className="md:text-4xl text-2xl">Sell With Us , <span className="text-blue-600">Coder !!</span></h1>
+<div className="bg-bl text-white">
+<div className="signup-section bg-bl text-white">
+      <h1 className="md:text-4xl text-2xl">Sell With Us , <span className="gradient">Coder !!</span></h1>
       <br />
       <form onSubmit={handleSubmit} className="form-signup">
         <div className="msg-box">
@@ -146,6 +147,7 @@ const DevSignUp = () => {
         </div>
       </form>
     </div>
+</div>
   );
 };
 

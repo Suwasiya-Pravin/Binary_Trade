@@ -1,8 +1,9 @@
 .signup-section{
     width: 80%;
     margin: auto;
-    margin-top: 19vh;
-    margin-bottom: 5vh;
+    padding-top: 19vh;
+    padding-bottom: 5vh;
+    color: white;
 }
 .make-center{
     display: flex;
@@ -17,7 +18,7 @@
 }
 .google-facebook-div .f-g{
     padding: 10px;
-    border: 1px solid #bebaba;
+    border: 1px solid #383838;
     cursor: pointer;
     border-radius: 2px;
     color: #1e1e1ed1;
@@ -42,19 +43,20 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    color: #1e1e1ed1;
 }
 .input input{
     border: 1px solid #bebaba;
     outline: none;
     padding: 10px;
     border-radius: 2px;
+    background-color: transparent;
 }
 .input textarea{
     border: 1px solid #bebaba;
     outline: none;
     padding: 10px;
     border-radius: 2px;
+    background-color: transparent;
 
 }
 .input textarea:focus{

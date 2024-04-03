@@ -6,7 +6,6 @@
     display: flex;
     justify-content: center;
     padding: 40px 0;
-    background-color: #ffff;
     width: 80%;
     margin: auto;
 
@@ -14,7 +13,7 @@
 
 .section, .newsletter {
     width: 30%;
-    background-color: #ffff;
+
 }
 
 .section h4, .newsletter h4 {
@@ -34,12 +33,13 @@
     transition:0.3s;
 }
 .section li:hover {
-    color: black;
+    color: white;
 }
 .newsletter input[type=email] {
     width: 100%;
     padding: 10px;
     margin: 10px 0; 
+    background-color: transparent;
     border: 1px solid #bbb6b6;
     border-radius: 2px;
     outline: none;
@@ -52,9 +52,8 @@
 .newsletter button {
     width: 100%;
     padding: 10px;
-    background-color: transparent;
     color: #7E7C7C;
-    border: 1px solid #bbb6b6;
+    border: 1px solid #7E7C7C;
     cursor: pointer;
     border-radius: 2px;
     box-sizing: border-box;

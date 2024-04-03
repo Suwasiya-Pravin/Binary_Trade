@@ -3,9 +3,9 @@ import "./Footer.css";
 import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
-    <div className="footer-container">
+    <div className="footer-container bg-bl text-white">
       <div className="footer">
-        <div className="section">
+        <div className="section bg-bl text-white">
           <h4>CUSTOMER SERVICE</h4>
           <ul>
             <li>
@@ -21,16 +21,13 @@ const Footer = () => {
         </div>
 
         <div className="section">
-          <h4>LINKS</h4>
+          <h4>Terms and Policy</h4>
           <ul>
             <li>
               <NavLink to="/privacy-policy">Privacy Policy</NavLink>
             </li>
             <li>
               <NavLink to="/terms-and-conditions">Terms and Conditions</NavLink>
-            </li>
-            <li>
-              <NavLink to="/developer/register">Sell with Us</NavLink>
             </li>
           </ul>
         </div>

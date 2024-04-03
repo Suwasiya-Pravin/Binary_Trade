@@ -63,104 +63,109 @@ const SignUp = () => {
     </button>
   );
   return (
-    <div className="signup-section">
-      <h1 className="text-3xl md:4xl text-center mb-12">
-        Welcome To <span className="text-blue-600">Binary Trade</span>
-      </h1>
-      <br />
-      <Formik
-        initialValues={initialValues}
-        validationSchema={SignUpSchema}
-        onSubmit={async (values, { setSubmitting, resetForm }) => {
-          try {
-            setSubmitting(true);
-            const res = await axios.post("/api/v1/users/register", values);
-            const data = await res.data;
-            console.log("User registered successfully!");
-            console.log(data, data.success, data.msg, data.data);
-            setSubmitting(false);
-            resetForm();
-            toast.success("Registered successfully!");
-            navigate("/signin");
-          } catch (error) {
-            console.error("Error registering user:", error.message);
-            setSubmitting(false);
-            toast.error(error.message);
-          }
-        }}>
-        {({ isSubmitting }) => (
-          <Form className="form-signup">
-            <div className="msg-box">
+    <div className="w-full bg-bl text-white">
+      <div className="signup-section bg-bl text-white">
+        <h1 className="text-3xl md:text-5xl mb-12">
+          Welcome To <span className="text-blue-600 gradient">Binary Trade</span>
+        </h1>
+        <br />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={SignUpSchema}
+          onSubmit={async (values, { setSubmitting, resetForm }) => {
+            try {
+              setSubmitting(true);
+              const res = await axios.post("/api/v1/users/register", values);
+              const data = await res.data;
+              console.log("User registered successfully!");
+              console.log(data, data.success, data.msg, data.data);
+              setSubmitting(false);
+              resetForm();
+              toast.success("Registered successfully!");
+              navigate("/signin");
+            } catch (error) {
+              console.error("Error registering user:", error.message);
+              setSubmitting(false);
+              toast.error(error.message);
+            }
+          }}>
+          {({ isSubmitting }) => (
+            <Form className="form-signup bg-bl text-white">
+              <div className="msg-box">
+                <div className="input">
+                  Enter Your FirstName :
+                  <Field name="firstname" type="text" placeholder="Firstname" />
+                  <ErrorMessage
+                    className="text-red-500"
+                    name="firstname"
+                    component="div"
+                  />
+                </div>
+                <div className="input">
+                  Enter Your Lastname :
+                  <Field name="lastname" type="text" placeholder="Lastname" />
+                  <ErrorMessage
+                    className="text-red-500"
+                    name="lastname"
+                    component="div"
+                  />
+                </div>
+              </div>
               <div className="input">
-                Enter Your FirstName :
-                <Field name="firstname" type="text" placeholder="Firstname" />
+                Enter Your Username :
+                <Field name="username" type="text" placeholder="Username" />
                 <ErrorMessage
                   className="text-red-500"
-                  name="firstname"
+                  name="username"
                   component="div"
                 />
               </div>
               <div className="input">
-                Enter Your Lastname :
-                <Field name="lastname" type="text" placeholder="Lastname" />
+                Enter Your Email :
+                <Field name="email" type="email" placeholder="Email" />
                 <ErrorMessage
                   className="text-red-500"
-                  name="lastname"
+                  name="email"
                   component="div"
                 />
               </div>
-            </div>
-            <div className="input">
-              Enter Your Username :
-              <Field name="username" type="text" placeholder="Username" />
-              <ErrorMessage
-                className="text-red-500"
-                name="username"
-                component="div"
-              />
-            </div>
-            <div className="input">
-              Enter Your Email :
-              <Field name="email" type="email" placeholder="Email" />
-              <ErrorMessage
-                className="text-red-500"
-                name="email"
-                component="div"
-              />
-            </div>
-            <div className="input">
-              <label htmlFor="password">Enter Your Password</label>
-              <Field
-                name="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-              />
+              <div className="input">
+                <label htmlFor="password">Enter Your Password</label>
+                <Field
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                />
 
-              <ErrorMessage
-                className="text-red-500"
-                name="password"
-                component="div"
-              />
+                <ErrorMessage
+                  className="text-red-500"
+                  name="password"
+                  component="div"
+                />
 
-              <TogglePasswordVisibility
-                showPassword={showPassword}
-                setShowPassword={setShowPassword}
-              />
-            </div>
+                <TogglePasswordVisibility
+                  showPassword={showPassword}
+                  setShowPassword={setShowPassword}
+                />
+              </div>
 
-            <button type="submit" className="btn w-20" disabled={isSubmitting}>
-              {isSubmitting ? "Loading..." : "Submit"}
-            </button>
-          </Form>
-        )}
-      </Formik>
-      <br />
-      <p className="flex justify-between">
-        Already have an account?{" "}
-        <NavLink to="/signin" className="text-blue-600">
-          Back to Login
-        </NavLink>
-      </p>
+              <button
+                type="submit"
+                className="btn w-20"
+                disabled={isSubmitting}>
+                {isSubmitting ? "Loading..." : "Submit"}
+              </button>
+            </Form>
+          )}
+        </Formik>
+        <br />
+        <p className="flex justify-between">
+          Already have an account?{" "}
+          <NavLink to="/signin" className="text-blue-600">
+            Back to Login
+          </NavLink>
+        </p>
+      </div>
     </div>
   );
 };

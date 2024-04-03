@@ -61,9 +61,10 @@ const Login = () => {
   };
 
   return (
-    <div className="signup-section">
-       <h1 className="text-3xl md:4xl mb-12">
-        Welcome Back <span className="text-blue-600">User !!</span>
+ <div className="bg-bl text-white">
+     <div className="signup-section bg-bl text-white">
+       <h1 className="text-3xl md:text-5xl mb-12">
+        Welcome Back <span className="text-blue-600 gradient">User !!</span>
       </h1>
       {/* <div className="google-facebook-div">
         <div className="f-g make-center">
@@ -110,6 +111,7 @@ const Login = () => {
         </div>
       </form>
     </div>
+ </div>
   );
 };
 

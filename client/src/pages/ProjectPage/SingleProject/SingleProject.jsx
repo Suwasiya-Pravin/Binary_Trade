@@ -148,7 +148,7 @@ const SingleProject = () => {
 
   if (!project) return <div>Loading...</div>;
   return (
-    <div className="single-P-Div">
+    <div className="single-P-Div bg-bl text-white">
       <div className="singleProject">
         <div className="ProjectInfo br-2">
           <div className="productImage h-full">
@@ -165,8 +165,8 @@ const SingleProject = () => {
             )}
             <img src={project.image} alt={project.title} />
           </div>
-          <div className="productDescription relative">
-            <h2 className="productCategory">
+          <div className="productDescription relative category ">
+            <h2 className=" text-blue-600 mb-2 ">
               {project.category && project.category.name}
             </h2>
 
@@ -181,10 +181,10 @@ const SingleProject = () => {
                 <i class="fa-solid fa-arrow-up-right-from-square text-sm rounded bg-blue-800 text-white p-2"></i>
               </a>
             </p>
-            <p className="productOwner">
-              Made By:{" "}
+            <p className="productOwner mb-3">
+              Made By : {"    "}
               <span
-                className="hover:text-blue-800 font-semibold"
+                className="hover:text-blue-800 font-semibold "
                 onClick={showModal}>
                 {project.developer && project.developer.username}
               </span>
@@ -194,8 +194,8 @@ const SingleProject = () => {
               <StarRating rating={project.overAllRating || 0} />
             </p>
             <div className="flex w-full justify-between items-center">
-              <p className="productPrice">
-                <s style={{ color: "black" }}>
+              <p className=" text-2xl text-blue-600">
+                <s className="text-black-700">
                   ₹ {parseInt(project.price * 1.3)}
                 </s>{" "}
                 ₹ {project.price}
@@ -207,7 +207,7 @@ const SingleProject = () => {
                       or.project.sourceCode
                     ) {
                       return (
-                        <button key={or.project._id} className="btn btn-active">
+                        <button key={or.project._id} className="bg-blue-600 text-white p-3 rounded">
                           <a href={`${or.project.sourceCode}`}>Download</a>
                         </button>
                       );
@@ -219,7 +219,7 @@ const SingleProject = () => {
                 {!order.some((or) => or.project._id === project._id) && (
                   <button
                     key={project._id}
-                    className="btn btn-active"
+                    className="bg-blue-600 text-white p-3 rounded"
                     onClick={() => {
                       navigate(`/payment/${project.slug}`);
                     }}>
@@ -231,7 +231,7 @@ const SingleProject = () => {
           </div>
         </div>
 
-        <div className="ProjectNavigation br-2">
+        <div className="ProjectNavigation br-2 category">
           <p onClick={() => setSelectedTab("Description")}>Description</p>
           <p onClick={() => setSelectedTab("PublishReview")}>Publish Review</p>
           <p onClick={() => setSelectedTab("AllReview")}>All Review</p>
@@ -265,16 +265,16 @@ const SingleProject = () => {
 
 const CompleteDesc = ({ description, synopsis }) => {
   return (
-    <div className="desc">
+    <div className="desc category p-5">
       <div className="d">
         {description}
         <br />
         <br />
         <br />
         Below is Download Button for Synopsis for Project..
-        <div>
+        <div className="mt-3">
           <button className="btn">
-            <a href={synopsis} download>
+            <a className="text-white" href={synopsis} download>
               Download
             </a>
           </button>

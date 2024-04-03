@@ -55,11 +55,9 @@ const Header = () => {
   const toggleNav = () => {
     setNavActive(!navActive);
   };
-
   const toggleLoginMenu = () => {
     setLoginMenuActive(!loginMenuActive);
   };
-
   const logOut = async () => {
     alert("Are you want to logout ?");
     const data = await axios.post("/api/v1/users/logout");
@@ -70,9 +68,9 @@ const Header = () => {
   return (
     <nav>
       <div className="logo">
-        <h4>Binary Trade</h4>
+        <h4 className="gradient">Binary Trade</h4>
       </div>
-      <ul className={`nav-links ${navActive ? "nav-active" : ""}`}>
+      <ul className={`nav-links ${navActive ? "nav-active bg-black-300" : ""}`}>
         <li style={{ "--i": 1 }}>
           <NavLink className="nav-link" to="/">
             Home
@@ -122,13 +120,12 @@ const Header = () => {
               </ul>
             ))}
         </li>
-      </ul> 
-        <div className="burger" onClick={toggleNav}>
-          <div className="line1"></div>
-          <div className="line2"></div>
-          <div className="line3"></div>
-        </div>
-
+      </ul>
+      <div className="burger bg-bl" onClick={toggleNav}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
+      </div>
     </nav>
   );
 };

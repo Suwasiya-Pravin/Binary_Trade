@@ -35,7 +35,7 @@ const Products = () => {
           const response = await axios.get("/api/v1/projects/filter", {
             params: {
               minRating: 0,
-              maxRating: rating,
+              maxRating: rating || 5,
               minPrice: 0,
               maxPrice: price,
             },
@@ -56,25 +56,25 @@ const Products = () => {
 
     const starIcons = [];
     for (let i = 0; i < fullStars; i++) {
-      starIcons.push(<i key={i} className="fas fa-star text-blue-800"></i>);
+      starIcons.push(<i key={i} className="fas fa-star  text-blue-600 "></i>);
     }
     if (halfStar) {
-      starIcons.push(<i key="half" className="fas fa-star-half-alt text-blue-800"></i>);
+      starIcons.push(<i key="half" className="fas fa-star-half-alt text-blue-600"></i>);
     }
     for (let i = 0; i < emptyStars; i++) {
       starIcons.push(
-        <i key={i + fullStars + halfStar} className="far fa-star text-blue-800"></i>
+        <i key={i + fullStars + halfStar} className="far fa-star text-blue-600"></i>
       );
     }
 
     return <div className="star-rating">{starIcons}</div>;
   };
   return (
-    <div className="pr-div relative">
+    <div className="pr-div relative bg-bl text-white">
       <div className="productPage">
-        <div className="filters">
+        <div className="filters ">
           <h3>Filters</h3>
-          <label className="price">
+          <label className="price category rounded-lg">
             Price range: {price}
             <input
               type="range"
@@ -85,7 +85,7 @@ const Products = () => {
               onChange={(e) => setPrice(e.target.value)}
             />
           </label>
-          <label className="rating">
+          <label className="rating category rounded-lg">
             Rating range: {rating}
             <input
               type="range"
@@ -110,7 +110,7 @@ const Products = () => {
                     padding: "13px",
                   }}
                   onClick={() => navigate(`/projects/${product.slug}`)}>
-                  <h4 className="productCategory">{product.category.name}</h4>
+                  <h4 className=" text-blue-600 mb-2">{product.category.name}</h4>
                   <h3 className="productName">{product.title}</h3>
                   <p>₹ {product.price}</p>
                   <p className="productRating">

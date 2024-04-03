@@ -27,7 +27,7 @@ const UserDashboard = () => {
   };
 
   return (
-    <div className="user-dashboard">
+    <div className="user-dashboard  bg-bl text-white ">
       <div className="navigation-menu">
         <h2>Navigation Menu</h2>
         <ul>

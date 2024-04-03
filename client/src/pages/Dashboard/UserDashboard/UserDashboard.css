@@ -2,15 +2,12 @@
 .user-dashboard {
     display: flex;
     flex-direction: row;
-    background-color: #ffff;
-    margin-top: 11vh;
+    padding-top: 11vh;
 }
 .user-dashboard h1{
     font-size: 20px;
 }
 .navigation-menu {
-    background-color: #f8f9fa;
-    color: black;
     padding: 2rem;
 }
 
@@ -32,10 +29,12 @@
 }
 
 .navigation-menu li:hover {
-    background-color: #e4e5e8;
+    background-color: #161b22;
+    color: white;
 }
 .menu-active{
-    background-color: #e4e5e8;
+    background-color: #161b22;
+    color: white;
 }
 
 .page-content {
@@ -63,10 +62,10 @@
 }
 .close-icon {
     position: absolute;
-    top: -9px;
-    right: -9px;
+    top: 1px;
+    right: 1px;
     color: rgb(255, 143, 143);
-    font-size: 30px;
+    font-size: 24px;
   }
   .close-icon:hover{
     color: red;
@@ -101,7 +100,7 @@
     font-size: 1rem;
     display: flex;
     flex-direction: column;
-    background-color: #cce5ff;
+
     padding: 1rem;
     border-radius: 3px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);

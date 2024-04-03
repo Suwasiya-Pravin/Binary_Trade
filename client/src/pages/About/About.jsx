@@ -3,10 +3,10 @@ import "./About.css";
 import Image from '../../assets/person.png'
 const About = () => {
   return (
-    <div className="bg-white mt-16">
+    <div className="bg-white mt-16 bg-bl text-white ">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div>
-          <h3 className="mt-2 text-3xl leading-8 font-normal tracking-tight text-gray-900 sm:text-4xl">
+          <h3 className="mt-2 text-3xl leading-8 font-normal tracking-tight sm:text-4xl gradient">
             Introduction
           </h3>
           <p className="mt-4 text-lg leading-7 text-gray-500 lg:mt-5 lg:text-xl">
@@ -19,7 +19,7 @@ const About = () => {
         <div className="mt-12">
           <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
             <div className="relative">
-              <dt className="text-lg leading-6 font-medium text-gray-900">
+              <dt className="text-lg leading-6 font-medium text-white">
                 Our Mission
               </dt>
               <dd className="mt-2 text-base leading-6 text-gray-500">
@@ -30,7 +30,7 @@ const About = () => {
             </div>
 
             <div className="relative">
-              <dt className="text-lg leading-6 font-medium text-gray-900">
+              <dt className="text-lg leading-6 font-medium text-white">
                 Team Members
               </dt>
               <dd className="mt-2 text-base leading-6 text-gray-500">
@@ -41,7 +41,7 @@ const About = () => {
                       alt="Team member 1"
                       className="w-full  object-cover object-center rounded-lg"
                     />
-                    <p className="mt-2 text-sm leading-5 font-medium text-gray-900">
+                    <p className="mt-2 text-sm leading-5 font-medium text-white">
                       Pravin Suwasiya
                     </p>
                     <p className="mt-1 text-sm leading-5 text-gray-500">
@@ -54,7 +54,7 @@ const About = () => {
             </div>
 
             <div className="relative">
-              <dt className="text-lg leading-6 font-medium text-gray-900">
+              <dt className="text-lg leading-6 font-medium text-white">
                 Our Journey
               </dt>
               <dd className="mt-2 text-base leading-6 text-gray-500">
@@ -67,7 +67,7 @@ const About = () => {
             </div>
 
             <div className="relative">
-              <dt className="text-lg leading-6 font-medium text-gray-900">
+              <dt className="text-lg leading-6 font-medium text-white">
                 Our Values
               </dt>
               <dd className="mt-2 text-base leading-6 text-gray-500">
@@ -81,7 +81,7 @@ const About = () => {
             </div>
 
             <div className="relative">
-              <dt className="text-lg leading-6 font-medium text-gray-900">
+              <dt className="text-lg leading-6 font-medium text-white">
                 Partnerships and Collaborations
               </dt>
               <dd className="mt-2 text-base leading-6 text-gray-500">
