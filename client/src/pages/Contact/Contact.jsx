@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Registration/SignUp.css";
 import { toast } from "react-toastify";
+import axios from 'axios'; // Import Axios for API requests
 const Contact = () => {
-  const handleSubmit = (e) => {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const { name, email, message } = formData;
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.success("Message Send Successfully")
+    try {
+      await axios.post('/api/v1/contact/create', formData); // Make POST request to API
+      toast.success("Message Sent Successfully");
+      setFormData({ name: "", email: "", message: "" }); // Clear form data after submission
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -22,29 +40,43 @@ const Contact = () => {
         </div>
 
         <div className="mt-10">
-          <form onSubmit={handleSubmit} className="form-signup mt-10">
-            <div className="msg-box">
-              <div className="input">
-                <label>Name</label>
-                <input type="text" placeholder="Please Enter Your Name" />
-              </div>
-              <div className="input">
-                <label>Email Address</label>
-                <input type="email" placeholder="Please Enter Your Email" />
-              </div>
-            </div>
+        <form onSubmit={handleSubmit} className="form-signup mt-10">
+          <div className="msg-box">
             <div className="input">
-              <label>Message</label>
-              <textarea
-                rows={8}
+              <label>Name</label>
+              <input
                 type="text"
-                placeholder="Please Enter Your Message"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                placeholder="Please Enter Your Name"
               />
             </div>
-            <div className="submit ">
-              <button className="btn">Submit</button>
+            <div className="input">
+              <label>Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                placeholder="Please Enter Your Email"
+              />
             </div>
-          </form>
+          </div>
+          <div className="input">
+            <label>Message</label>
+            <textarea
+              rows={8}
+              name="message"
+              value={message}
+              onChange={handleChange}
+              placeholder="Please Enter Your Message"
+            />
+          </div>
+          <div className="submit ">
+            <button type="submit" className="btn">Submit</button>
+          </div>
+        </form>
         </div>
 
         <div className="mt-10 md:mt-12">

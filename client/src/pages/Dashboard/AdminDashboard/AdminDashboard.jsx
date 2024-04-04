@@ -235,11 +235,39 @@ const Projects = () => {
   );
 };
 
-const TotalBalance = () => {
+const Contact = () => {
+  const [contacts, setContacts] = useState([]);
+
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const response = await axios.get('/api/v1/contact/getall');
+        setContacts(response.data);
+      } catch (error) {
+        console.error("Error fetching contacts:", error);
+        toast.error("Failed to fetch contacts");
+      }
+    };
+
+    fetchContacts();
+  }, []);
+
   return (
-    <div className="signup-section publish-r ">
-      <h1>Total Balance</h1>
-      <hr />
+    <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <div className="signup-section publish-r">
+        <h1 className="text-3xl font-bold text-center mb-6">Contacts</h1>
+        <hr className="mb-6" />
+
+        <div className="grid grid-cols-1 gap-4">
+          {contacts.map(contact => (
+            <div key={contact._id} className="category  categoryHover rounded-lg p-4 shadow-md">
+              <p><span className="font-bold">Name: </span> {contact.name}</p>
+              <p><span className="font-bold">Email: </span> {contact.email}</p>
+              <p><span className="font-bold">Message: </span> {contact.message}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
@@ -492,8 +520,8 @@ const UserDashboard = () => {
         return <Account />;
       case "Projects":
         return <Projects />;
-      case "Balance":
-        return <TotalBalance />;
+      case "Contact":
+        return <Contact />;
       case "Catagory":
         return <Catagory />;
       default:
@@ -529,6 +557,11 @@ const UserDashboard = () => {
             className={currentPage === "Catagory" ? "menu-active" : ""}
             onClick={() => setCurrentPage("Catagory")}>
             Catagory
+          </li>
+          <li
+            className={currentPage === "Contact" ? "menu-active" : ""}
+            onClick={() => setCurrentPage("Contact")}>
+            Contacts
           </li>
         </ul>
       </div>
