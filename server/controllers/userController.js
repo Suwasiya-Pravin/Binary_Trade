@@ -138,7 +138,6 @@ const loginController = async (req, res) => {
         expires: new Date(Date.now() + 25892000000),
         httpOnly: true,
       });
-      console.log(userLogin._id);
       if (!isMatch) {
         res.status(400).json({
           success: false,
@@ -487,7 +486,7 @@ const isPaymentDoneController = async (req, res) => {
   try {
     const userId = req.userId;
     const projectId = req.params.projectId;
-    console.log(projectId,userId)
+
     // Find order by user and project id
     const order = await Order.findOne({ user: userId, project: projectId });
 
@@ -499,7 +498,6 @@ const isPaymentDoneController = async (req, res) => {
         data: null,
       });
     }
-    console.log(order);
     // If order found, return project details
     const project = await Project.findById(projectId).select('sourceCode');
     res.status(200).json({

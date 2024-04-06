@@ -25,10 +25,8 @@ const placeOrderController = async (req, res) => {
   try {
     const projectId = req.params.projectId;
     const userId = req.userId;
-    console.log(projectId, userId);
     const project = await Project.findById(projectId);
     const amount = project.price;
-    console.log(amount);
 
     const razorpayInstance = new Razorpay({
       key_id: process.env.RAZOR_KEY,
@@ -50,7 +48,6 @@ const placeOrderController = async (req, res) => {
       orderId: response.id,
     });
     res.status(200).json(response);
-    console.log(response);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -74,8 +71,6 @@ const verifyPaymentController = async (req, res) => {
 
     paymentVerified.status = "completed";
     await paymentVerified.save();
-    console.log(paymentVerified);
-
     res.status(201).json("Purchase successful !");
   }
 };

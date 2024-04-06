@@ -52,7 +52,7 @@ const PaymentMethod = () => {
       },
       notes: {},
       theme: {
-        color: "#3399cc",
+        color: "#000",
       },
     };
     var rzp = new Razorpay(options);
