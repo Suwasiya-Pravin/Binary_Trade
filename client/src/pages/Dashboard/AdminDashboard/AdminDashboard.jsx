@@ -253,12 +253,11 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div className="max-w-7xl h-[95vh] mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
       <div className="signup-section publish-r">
-        <h1 className="text-3xl font-bold text-center mb-6">Contacts</h1>
+        <h1 className="text-5xl mb-6">Contacts</h1>
         <hr className="mb-6" />
-
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4 ">
           {contacts.map(contact => (
             <div key={contact._id} className="category  categoryHover rounded-lg p-4 shadow-md">
               <p><span className="font-bold">Name: </span> {contact.name}</p>

@@ -4,7 +4,7 @@ import { Reset } from "../../../Components/devDashbaordComponents/Reset";
 import Projects from "../../../Components/devDashbaordComponents/Projects";
 import Add from "../../../Components/devDashbaordComponents/Add";
 import Account from "../../../Components/devDashbaordComponents/Account";
-import TotalBalance from "../../../Components/devDashbaordComponents/TotalBalance";
+// import TotalBalance from "../../../Components/devDashbaordComponents/TotalBalance";
 
 
 const UserDashboard = () => {
@@ -17,8 +17,6 @@ const UserDashboard = () => {
         return <Account />;
       case "Projects":
         return <Projects />;
-      case "Balance":
-        return <TotalBalance />;
       case "Add":
         return <Add />;
       default:
@@ -50,11 +48,6 @@ const UserDashboard = () => {
             className={currentPage === "Projects" ? "menu-active" : ""}
             onClick={() => setCurrentPage("Projects")}>
             All Projects
-          </li>
-          <li
-            className={currentPage === "Balance" ? "menu-active" : ""}
-            onClick={() => setCurrentPage("Balance")}>
-            Total Balance
           </li>
         </ul>
       </div>

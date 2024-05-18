@@ -19,6 +19,7 @@ import { ToastContainer } from "react-toastify";
 import TermsAndCondition from "./pages/TermAndConditons/TermsAndCondition";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 
+
 function App() {
   return (
     <>

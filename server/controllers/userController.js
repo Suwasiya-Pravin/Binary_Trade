@@ -141,20 +141,20 @@ const loginController = async (req, res) => {
       if (!isMatch) {
         res.status(400).json({
           success: false,
-          msg: "invalid password",
+          msg: "Invalid Credientials",
           data: null,
         });
       } else {
         res.status(201).json({
           success: true,
-          msg: "user login sucessfully",
+          msg: "User login sucessfully",
           data: userLogin,
         });
       }
     } else {
       res.status(400).json({
         success: false,
-        msg: "invalid email",
+        msg: "Invalid Credientials",
         data: null,
       });
     }

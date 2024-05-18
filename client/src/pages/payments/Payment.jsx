@@ -16,6 +16,7 @@ const PaymentMethod = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
+        
         const response = await axios.get(
           `/api/v1/projects/single/slug/${slug}`
         );
@@ -35,7 +36,7 @@ const PaymentMethod = () => {
     );
     console.log(response);
     const options = {
-      key: "rzp_test_qGEfgGpgroFxOp",
+      key: process.env.REACT_APP_KEY,
       amount: response.data.amount,
       currency: "INR",
       name: "Binary Trade",
@@ -48,6 +49,9 @@ const PaymentMethod = () => {
           console.log("Purchase successfull !");
           toast.success("Payment Done Successfully");
           navigate(`/projects/${project.slug}`)
+        }
+        else{
+          navigate('/signin')
         }
       },
       notes: {},

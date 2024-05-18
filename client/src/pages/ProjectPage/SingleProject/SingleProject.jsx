@@ -28,9 +28,10 @@ const SingleProject = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
+  console.log('global state',globalState);
   useEffect(() => {
     const fetchProjects = async () => {
+      
       try {
         const response = await axios.get(
           `/api/v1/projects/single/slug/${slug}`
@@ -221,7 +222,7 @@ const SingleProject = () => {
                     key={project._id}
                     className="bg-blue-600 text-white p-3 rounded"
                     onClick={() => {
-                      navigate(`/payment/${project.slug}`);
+                        navigate(`/payment/${project.slug}`);
                     }}>
                     Buy Now
                   </button>

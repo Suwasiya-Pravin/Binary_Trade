@@ -17,8 +17,8 @@ const Contact = () => {
     e.preventDefault();
     try {
       await axios.post('/api/v1/contact/create', formData); // Make POST request to API
-      toast.success("Message Sent Successfully");
       setFormData({ name: "", email: "", message: "" }); // Clear form data after submission
+      toast.success("Message Sent Successfully");
     } catch (error) {
       console.error("Error sending message:", error);
       toast.error("Failed to send message. Please try again.");

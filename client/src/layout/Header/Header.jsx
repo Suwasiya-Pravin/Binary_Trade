@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../Header/Header.css"; // Make sure this path is correct
 import { GlobalContext } from "../../GlobalState";
 import axios from "axios";
@@ -9,6 +10,7 @@ const Header = () => {
   const { globalState, setGlobalState } = useContext(GlobalContext);
   const [isLogin, setIsLogin] = useState(false); // eslint-disable-next-line
   const [userType, setUserType] = useState(globalState.userType);
+  const navigate = useNavigate();
   useEffect(() => {
     setUserType(globalState.userType);
   }, [globalState.userType]);
@@ -64,6 +66,7 @@ const Header = () => {
     console.log(data.data);
     setGlobalState({});
     alert("you log out successfully");
+    navigate("/")
   };
   return (
     <nav>

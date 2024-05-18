@@ -69,6 +69,7 @@ const Products = () => {
 
     return <div className="star-rating">{starIcons}</div>;
   };
+  console.log(projects)
   return (
     <div className="pr-div relative bg-bl text-white">
       <div className="productPage">

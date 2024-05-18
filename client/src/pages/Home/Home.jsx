@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import { GlobalContext } from "../../GlobalState";
+import React, { useEffect, useState } from "react";
+// import { GlobalContext } from "../../GlobalState";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Home.css";
 import "../../pages/ProjectPage/Projects.css";
 const Home = () => {
-  const { globalState } = useContext(GlobalContext);
+  const data = process.env.REACT_APP_TEST_DATA
+  console.log('env val',data);
+  // const { globalState } = useContext(GlobalContext);
   const [projects, setProjects] = useState([]);
   const [isMounted, setIsMounted] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -68,7 +70,7 @@ const Home = () => {
   const testimonialsData = [
     {
       id: 1,
-      name: "John Doe",
+      name: "John cook",
       position: "CEO, Tech Solutions Inc.",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut elit vitae nisi lobortis consectetur.",
@@ -98,8 +100,8 @@ const Home = () => {
     },
     // Add more testimonials as needed
   ];
-
-  console.log(globalState);
+  const startIndex = projects.length - 3;
+  console.log(projects);
   return (
     <div>
       <div className="hero px-7">
@@ -134,7 +136,7 @@ const Home = () => {
           Featured Projects
         </h2>
         <div className="flex gap-5 md:gap-10 flex-col md:flex-row justify-start">
-          {projects.map((product) => {
+          {projects.slice(startIndex).map((product) => {
             return (
               <div key={product._id} className="productCard">
                 <div className="productImage">

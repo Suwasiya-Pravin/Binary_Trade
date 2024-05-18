@@ -26,8 +26,15 @@ const Login = () => {
           password,
         });
         console.log("Logged in successfully:", response.data);
-        toast.success("Login Successfully !!")
+        if(response.data.success){
+          toast.success("User Login Successfully !! ")
+         
+        }
+        else{
+          toast.error("Invalid Credientials !! ")
+        }
         setGlobalState(response.data.data);
+
         if (response.data.data.userType === "buyer") {
           navigate("/user/dashboard");
         }

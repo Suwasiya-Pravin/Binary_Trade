@@ -1,5 +1,5 @@
 .hero {
-    margin-top: 11vh;
+    margin-top: 9.4vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -176,3 +176,5 @@
   border: 1px solid #252b33;
   background-color: #252b33;
 }
+
+
