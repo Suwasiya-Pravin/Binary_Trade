@@ -15,3 +15,7 @@ app.use("/api/v1/order",require('./router/order'));
 app.use("/api/v1/contact",require('./router/contact'));
 
 const PORT = process.env.PORT;
+
+app.listen(4000,()=>{
+    console.log(`server running at port ${PORT}`)
+})
