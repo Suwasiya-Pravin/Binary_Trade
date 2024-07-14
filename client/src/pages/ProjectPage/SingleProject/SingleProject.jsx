@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import Modal from "antd/es/modal/Modal";
 import { GlobalContext } from "../../../GlobalState";
 import { toast } from "react-toastify";
-import "../../../../node_modules/react-toastify/dist/ReactToastify.css";
 
 const SingleProject = () => {
   let { slug } = useParams();
