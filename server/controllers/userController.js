@@ -137,6 +137,8 @@ const loginController = async (req, res) => {
       res.cookie("jwtoken", token, {
         expires: new Date(Date.now() + 25892000000),
         httpOnly: true,
+        secure: true,
+        sameSite: "none",
       });
       if (!isMatch) {
         res.status(400).json({
@@ -499,7 +501,7 @@ const isPaymentDoneController = async (req, res) => {
       });
     }
     // If order found, return project details
-    const project = await Project.findById(projectId).select('sourceCode');
+    const project = await Project.findById(projectId).select("sourceCode");
     res.status(200).json({
       success: true,
       msg: "Project details found",
