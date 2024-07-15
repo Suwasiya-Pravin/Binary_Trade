@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-
-import "../../../node_modules/react-toastify/dist/ReactToastify.css";
 
 const Add = () => {
   
@@ -54,7 +51,6 @@ const Add = () => {
           ...pre,
           image: response.data.secure_url,
         }));
-        toast.success("image save success");
         console.log("Image uploaded successfully", response.data.secure_url);
       } catch (error) {
         console.error("Error uploading image to Cloudinary:", error);
@@ -75,7 +71,6 @@ const Add = () => {
           ...pre,
           synopsis: response.data.secure_url,
         }));
-        toast.success("pdf save success");
         console.log("PDF uploaded successfully", response.data.secure_url);
       } catch (error) {
         console.error("Error uploading PDF to Cloudinary:", error);
@@ -96,7 +91,7 @@ const Add = () => {
           ...pre,
           sourceCode: res.data.secure_url,
         }));
-        toast.success("zip save success");
+
       }
       catch(err){
         console.log(err);
@@ -109,7 +104,6 @@ const Add = () => {
     try {
       const response = await axios.post("/api/v1/projects/create", formData);
       console.log("Project created:", response.data);
-      toast.success("Project added Successfully");
       setFormData({
         title: "",
         description: "",
@@ -233,7 +227,6 @@ const Add = () => {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </>
   );
 };
