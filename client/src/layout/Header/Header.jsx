@@ -14,6 +14,7 @@ const Header = () => {
   useEffect(() => {
     setUserType(globalState.userType);
   }, [globalState.userType]);
+  console.log("global type ",globalState)
   const renderLink = () => {
     switch (userType) {
       case "buyer":

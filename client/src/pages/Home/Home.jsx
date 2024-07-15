@@ -114,7 +114,7 @@ const Home = () => {
           className="bg-blue-600 text-white">
           Shop Now
         </button>
-
+        
         <div className="area">
           <ul className="circles">
             <li></li>

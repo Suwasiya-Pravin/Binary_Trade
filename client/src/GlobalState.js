@@ -4,8 +4,23 @@ import axios from "axios";
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [globalState, setGlobalState] = useState({});
-
+  const [globalState, setGlobalState] = useState({
+    id: '',
+    firstname: '',
+    lastname: '',
+    username: '',
+    email: '',
+    bio: '',
+    favoriteProjects: [],
+    mobile: '',
+    projects: [],
+    skills: [],
+    socialMedia: '',
+    tokens: [],
+    transactions: [],
+    userType: '',
+    walletBalance: 0
+  }); 
   useEffect(() => {
     const getData = async () => {
       try {
